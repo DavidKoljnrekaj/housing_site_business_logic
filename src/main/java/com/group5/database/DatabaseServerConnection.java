@@ -5,7 +5,7 @@ import com.group5.UserServiceGrpc;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
-public class DatabaseServerConnection {
+public class  DatabaseServerConnection {
 
 
     public static UserServiceGrpc.UserServiceBlockingStub getStub(){
