@@ -8,7 +8,7 @@
 		<version>2.7.5</version>
 		<relativePath/>
 	</parent>
-	<groupId>SEP3</groupId>
+	<groupId>com.group5</groupId>
 	<artifactId>housing_site_business_logic</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>housing_site_business_logic</name>

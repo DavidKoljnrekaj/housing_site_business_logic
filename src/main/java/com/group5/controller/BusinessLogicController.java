@@ -1,7 +1,6 @@
-package SEP3.housing_site_business_logic.controller;
+package com.group5.controller;
 
-import SEP3.housing_site_business_logic.database.DatabaseServerConnection;
-import SEP3.housing_site_business_logic.service.BusinessLogicServiceImpl;
+import com.group5.service.BusinessLogicServiceImpl;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController

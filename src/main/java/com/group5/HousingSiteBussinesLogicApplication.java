@@ -1,4 +1,4 @@
-package SEP3.housing_site_business_logic;
+package com.group5;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

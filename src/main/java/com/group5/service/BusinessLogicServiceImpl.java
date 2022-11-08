@@ -1,6 +1,6 @@
-package SEP3.housing_site_business_logic.service;
+package com.group5.service;
 
-import SEP3.housing_site_business_logic.database.DatabaseServerConnection;
+import com.group5.database.DatabaseServerConnection;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -8,6 +8,6 @@ public class BusinessLogicServiceImpl implements BusinessLogicService {
     private DatabaseServerConnection database;
     public BusinessLogicServiceImpl()
     {
-        database=new DatabaseServerConnection();
+        //database=new DatabaseServerConnection();
     }
 }

@@ -1,4 +1,4 @@
-package SEP3.housing_site_business_logic.service;
+package com.group5.service;
 
 import org.springframework.stereotype.Service;
 
