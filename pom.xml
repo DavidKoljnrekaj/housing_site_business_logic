@@ -56,7 +56,12 @@
 			<artifactId>json-simple</artifactId>
 			<version>1.1.1</version>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>io.github.lognet</groupId>
+            <artifactId>grpc-spring-boot-starter</artifactId>
+            <version>4.8.0</version>
+        </dependency>
+    </dependencies>
 
 	<!-- this needs to be run before implementing the gRPC -->
 	<build>
