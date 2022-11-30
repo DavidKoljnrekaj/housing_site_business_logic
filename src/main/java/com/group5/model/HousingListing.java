@@ -1,5 +1,7 @@
 package com.group5.model;
 
+import java.util.List;
+
 public class HousingListing {
 
 
@@ -12,15 +14,15 @@ public class HousingListing {
     private final boolean hasInspection;
     private final double groundArea;
     private final double floorArea;
-    private final String imageBase64Data;
-    private final String imageContentType;
-    private final String imageFileName;
+    private final List<String> imageBase64Data;
+    private final List<String> imageContentType;
+    private final List<String> imageFileName;
     private final double price;
     private final long id;
 
 
 
-    public HousingListing(long id, String street, int postNumber, String city, int houseNo, int constructionYear, int lastRebuilt, boolean hasInspection, double groundArea, double floorArea, String imageBase64Data, String imageContentType, String imageFileName, double price) {
+    public HousingListing(long id, String street, int postNumber, String city, int houseNo, int constructionYear, int lastRebuilt, boolean hasInspection, double groundArea, double floorArea, List<String> imageBase64Data, List<String> imageContentType, List<String> imageFileName, double price) {
         this.id = id;
         this.street = street;
         this.postNumber = postNumber;
@@ -77,15 +79,15 @@ public class HousingListing {
         return floorArea;
     }
 
-    public String getImageBase64Data() {
+    public List<String> getImageBase64Data() {
         return imageBase64Data;
     }
 
-    public String getImageContentType() {
+    public List<String> getImageContentType() {
         return imageContentType;
     }
 
-    public String getImageFileName() {
+    public List<String> getImageFileName() {
         return imageFileName;
     }
 
