@@ -13,6 +13,29 @@ message GetUserByIdResponse{
   string email = 4;
 }
 
+message PostHouseListingRequest{
+  int64 id = 1;
+  string street = 2;
+  int64 postNumber = 3;
+  string city = 4;
+  int64 houseNo = 5;
+  int64 constructorYear = 6;
+  int64 lastRebuilt = 7;
+  bool hasInspection = 8;
+  double groundArea = 9;
+  double floorArea = 10;
+  string imageBase64Data = 11;
+  string imageContentType = 12;
+  string imageFileName = 13;
+  double price = 14;
+}
+message PostHouseListingResponse{
+  int64 id = 1;
+}
+service PostHouseListing{
+ rpc postHouseListing(PostHouseListingRequest) returns (PostHouseListingResponse);
+}
+
 service UserService {
   rpc getUserById(GetUserByIdRequest) returns (GetUserByIdResponse);
 }
