@@ -17,6 +17,7 @@ public class BusinessLogicServiceImpl implements BusinessLogicService {
     public BusinessLogicServiceImpl()
     {
         stub=DatabaseServerConnection.getStub();
+        stub1=DatabaseServerConnection.getStub1();
     }
     public Optional<User> findUserById(Long id)
     {
@@ -30,6 +31,7 @@ public class BusinessLogicServiceImpl implements BusinessLogicService {
 
     @Override
     public Optional<HousingListing> createHouseListing(String street, int postNumber, String city, int houseNo, int constructionYear, int lastRebuilt, boolean hasInspection, double groundArea, double floorArea, List<String> imageBase64Data, List<String> imageContentType, List<String> imageFileName, double price) {
+
         CreateHouseListingResponse response = stub1.createListing(CreateHouseListingRequest.newBuilder()
                 .setStreet(street)
                 .setPostNumber(postNumber)

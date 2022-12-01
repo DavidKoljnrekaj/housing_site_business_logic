@@ -10,7 +10,7 @@ public class  DatabaseServerConnection {
 
     public static UserServiceGrpc.UserServiceBlockingStub getStub(){
 
-        ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:8081").usePlaintext().build();
+        ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:6565").usePlaintext().build();
 
         UserServiceGrpc.UserServiceBlockingStub blockingStub = UserServiceGrpc.newBlockingStub(channel);
         //PostHouseListingGrpc.PostHouseListingBlockingStub blockingStub1 = PostHouseListingGrpc.newBlockingStub(channel);
@@ -20,7 +20,7 @@ public class  DatabaseServerConnection {
 
     public static ListingServiceGrpc.ListingServiceBlockingStub getStub1(){
 
-        ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:8081").usePlaintext().build();
+        ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:6565").usePlaintext().build();
 
 
         ListingServiceGrpc.ListingServiceBlockingStub blockingStub = ListingServiceGrpc.newBlockingStub(channel);
