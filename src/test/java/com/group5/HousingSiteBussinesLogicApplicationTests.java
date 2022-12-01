@@ -29,10 +29,10 @@ class HousingSiteBussinesLogicApplicationTests {
 		image64DataList.add("image");
 
 		List<String> imageContentTypeList = new ArrayList<>();
-		image64DataList.add("png");
+		imageContentTypeList.add("png");
 
 		List<String> imageFileNameList = new ArrayList<>();
-		image64DataList.add("picture");
+		imageFileNameList.add("picture");
 
 		System.out.println(service.createHouseListing("Kollegievet", 8700, "Horsens", 30, 1990, 2020,
 				true, 120, 120, image64DataList, imageContentTypeList, imageFileNameList, 200000));
