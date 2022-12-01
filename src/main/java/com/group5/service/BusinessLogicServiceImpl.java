@@ -17,7 +17,6 @@ public class BusinessLogicServiceImpl implements BusinessLogicService {
     public BusinessLogicServiceImpl()
     {
         stub=DatabaseServerConnection.getStub();
-        //database=new DatabaseServerConnection();
     }
     public Optional<User> findUserById(Long id)
     {

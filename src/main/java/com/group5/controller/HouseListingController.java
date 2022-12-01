@@ -25,8 +25,21 @@ public class HouseListingController {
     }
     
     @PostMapping("/addHousingListing")
-    public String addHousingListing(@RequestParam(value = "street", defaultValue = "Null") String street){
-        housingListings.add(new HousingListing(counter.incrementAndGet() , String.format(street), 0, "None", 0, 0, 0, false, 0 , 0, dummyStringList, dummyStringList, dummyStringList, 0 ));
-        return "Listing added!";
+    public HousingListing addHousingListing(@RequestParam(value = "street", defaultValue = "Null") String street,
+                                            @RequestParam(value = "postNumber", defaultValue = "0") int postNumber,
+                                            @RequestParam(value = "city", defaultValue = "Null") String city,
+                                            @RequestParam(value = "houseNo", defaultValue = "0") int houseNo,
+                                            @RequestParam(value = "constructionYear", defaultValue = "0") int constructionYear,
+                                            @RequestParam(value = "lastRebuilt", defaultValue = "0") int lastRebuilt,
+                                            @RequestParam(value = "hasInspection", defaultValue = "false") boolean hasInspection,
+                                            @RequestParam(value = "groundArea", defaultValue = "0") double groundArea,
+                                            @RequestParam(value = "floorArea", defaultValue = "0") double floorArea,
+                                            @RequestParam(value = "imageBase64Data", defaultValue =  "Null") List<String> imageBase64Data,
+                                            @RequestParam(value = "imageContentType", defaultValue =  "Null") List<String> imageContentType,
+                                            @RequestParam(value = "imageFileName", defaultValue =  "Null") List<String> imageFileName,
+                                            @RequestParam(value = "price", defaultValue = "0") double price){
+        housingListings.add(new HousingListing(counter.incrementAndGet() , String.format(street), postNumber, String.format(city), houseNo, constructionYear, lastRebuilt, hasInspection, groundArea , floorArea, imageBase64Data, imageContentType, imageFileName, price ));
+        //System.out.println(housingListings.get(counter.intValue() - 1));
+        return housingListings.get(counter.intValue() - 1);
     }
 }
