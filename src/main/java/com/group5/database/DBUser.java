@@ -1,8 +1,8 @@
 package com.group5.database;
 
-import com.group5.proto.GetUserByIdRequest;
-import com.group5.proto.GetUserByIdResponse;
-import com.group5.proto.UserServiceGrpc;
+import com.group5.proto.User.GetUserByIdRequest;
+import com.group5.proto.User.GetUserByIdResponse;
+import com.group5.proto.User.UserServiceGrpc;
 import com.group5.model.User;
 import io.grpc.StatusRuntimeException;
 

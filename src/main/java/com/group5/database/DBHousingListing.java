@@ -1,6 +1,6 @@
 package com.group5.database;
 
-import com.group5.proto.*;
+import com.group5.proto.Listing.*;
 import com.group5.model.HousingListing;
 import io.grpc.StatusRuntimeException;
 

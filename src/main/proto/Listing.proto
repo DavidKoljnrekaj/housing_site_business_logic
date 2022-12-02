@@ -1,6 +1,6 @@
 syntax = "proto3";
 option java_multiple_files = true;
-package com.group5.proto;
+package com.group5.proto.Listing;
 
 
 message CreateHouseListingRequest {
