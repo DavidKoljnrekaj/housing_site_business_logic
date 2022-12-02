@@ -1,10 +1,12 @@
 package com.group5.service;
 
-import com.group5.*;
 import com.group5.database.DatabaseServerConnection;
 import com.group5.model.HousingListing;
 import com.group5.model.User;
+import com.group5.proto.*;
+
 import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 import java.util.Optional;

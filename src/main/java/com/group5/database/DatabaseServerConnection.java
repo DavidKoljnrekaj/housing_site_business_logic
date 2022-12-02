@@ -1,7 +1,7 @@
 package com.group5.database;
 
-import com.group5.ListingServiceGrpc;
-import com.group5.UserServiceGrpc;
+import com.group5.proto.ListingServiceGrpc;
+import com.group5.proto.UserServiceGrpc;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 

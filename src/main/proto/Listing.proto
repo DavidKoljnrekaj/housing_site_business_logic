@@ -1,17 +1,7 @@
 syntax = "proto3";
 option java_multiple_files = true;
-package com.group5;
+package com.group5.proto;
 
-message GetUserByIdRequest {
-  int64 userId = 1;
-}
-
-message GetUserByIdResponse {
-  int64 id = 1;
-  string name = 2;
-  string surname = 3;
-  string email = 4;
-}
 
 message CreateHouseListingRequest {
   string street = 1;
@@ -45,10 +35,6 @@ message CreateHouseListingResponse {
   repeated string imageFileName = 13;
   double price = 14;
   string creationDate = 15;
-}
-
-service UserService {
-  rpc getUserById(GetUserByIdRequest) returns (GetUserByIdResponse);
 }
 
 service ListingService {

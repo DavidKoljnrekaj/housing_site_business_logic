@@ -1,4 +1,4 @@
-package com.group5;
+package com.group5.proto;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
@@ -6,37 +6,37 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.39.0)",
-    comments = "Source: HousingSite.proto")
+    comments = "Source: Listing.proto")
 public final class ListingServiceGrpc {
 
   private ListingServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "com.group5.ListingService";
+  public static final String SERVICE_NAME = "com.group5.proto.ListingService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.group5.CreateHouseListingRequest,
-      com.group5.CreateHouseListingResponse> getCreateListingMethod;
+  private static volatile io.grpc.MethodDescriptor<com.group5.proto.CreateHouseListingRequest,
+      com.group5.proto.CreateHouseListingResponse> getCreateListingMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "createListing",
-      requestType = com.group5.CreateHouseListingRequest.class,
-      responseType = com.group5.CreateHouseListingResponse.class,
+      requestType = com.group5.proto.CreateHouseListingRequest.class,
+      responseType = com.group5.proto.CreateHouseListingResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.group5.CreateHouseListingRequest,
-      com.group5.CreateHouseListingResponse> getCreateListingMethod() {
-    io.grpc.MethodDescriptor<com.group5.CreateHouseListingRequest, com.group5.CreateHouseListingResponse> getCreateListingMethod;
+  public static io.grpc.MethodDescriptor<com.group5.proto.CreateHouseListingRequest,
+      com.group5.proto.CreateHouseListingResponse> getCreateListingMethod() {
+    io.grpc.MethodDescriptor<com.group5.proto.CreateHouseListingRequest, com.group5.proto.CreateHouseListingResponse> getCreateListingMethod;
     if ((getCreateListingMethod = ListingServiceGrpc.getCreateListingMethod) == null) {
       synchronized (ListingServiceGrpc.class) {
         if ((getCreateListingMethod = ListingServiceGrpc.getCreateListingMethod) == null) {
           ListingServiceGrpc.getCreateListingMethod = getCreateListingMethod =
-              io.grpc.MethodDescriptor.<com.group5.CreateHouseListingRequest, com.group5.CreateHouseListingResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.group5.proto.CreateHouseListingRequest, com.group5.proto.CreateHouseListingResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "createListing"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.group5.CreateHouseListingRequest.getDefaultInstance()))
+                  com.group5.proto.CreateHouseListingRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.group5.CreateHouseListingResponse.getDefaultInstance()))
+                  com.group5.proto.CreateHouseListingResponse.getDefaultInstance()))
               .setSchemaDescriptor(new ListingServiceMethodDescriptorSupplier("createListing"))
               .build();
         }
@@ -95,8 +95,8 @@ public final class ListingServiceGrpc {
 
     /**
      */
-    public void createListing(com.group5.CreateHouseListingRequest request,
-        io.grpc.stub.StreamObserver<com.group5.CreateHouseListingResponse> responseObserver) {
+    public void createListing(com.group5.proto.CreateHouseListingRequest request,
+        io.grpc.stub.StreamObserver<com.group5.proto.CreateHouseListingResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateListingMethod(), responseObserver);
     }
 
@@ -106,8 +106,8 @@ public final class ListingServiceGrpc {
             getCreateListingMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.group5.CreateHouseListingRequest,
-                com.group5.CreateHouseListingResponse>(
+                com.group5.proto.CreateHouseListingRequest,
+                com.group5.proto.CreateHouseListingResponse>(
                   this, METHODID_CREATE_LISTING)))
           .build();
     }
@@ -129,8 +129,8 @@ public final class ListingServiceGrpc {
 
     /**
      */
-    public void createListing(com.group5.CreateHouseListingRequest request,
-        io.grpc.stub.StreamObserver<com.group5.CreateHouseListingResponse> responseObserver) {
+    public void createListing(com.group5.proto.CreateHouseListingRequest request,
+        io.grpc.stub.StreamObserver<com.group5.proto.CreateHouseListingResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateListingMethod(), getCallOptions()), request, responseObserver);
     }
@@ -152,7 +152,7 @@ public final class ListingServiceGrpc {
 
     /**
      */
-    public com.group5.CreateHouseListingResponse createListing(com.group5.CreateHouseListingRequest request) {
+    public com.group5.proto.CreateHouseListingResponse createListing(com.group5.proto.CreateHouseListingRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateListingMethod(), getCallOptions(), request);
     }
@@ -174,8 +174,8 @@ public final class ListingServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.group5.CreateHouseListingResponse> createListing(
-        com.group5.CreateHouseListingRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.group5.proto.CreateHouseListingResponse> createListing(
+        com.group5.proto.CreateHouseListingRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCreateListingMethod(), getCallOptions()), request);
     }
@@ -201,8 +201,8 @@ public final class ListingServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_CREATE_LISTING:
-          serviceImpl.createListing((com.group5.CreateHouseListingRequest) request,
-              (io.grpc.stub.StreamObserver<com.group5.CreateHouseListingResponse>) responseObserver);
+          serviceImpl.createListing((com.group5.proto.CreateHouseListingRequest) request,
+              (io.grpc.stub.StreamObserver<com.group5.proto.CreateHouseListingResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -226,7 +226,7 @@ public final class ListingServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.group5.HousingSite.getDescriptor();
+      return com.group5.proto.Listing.getDescriptor();
     }
 
     @java.lang.Override
