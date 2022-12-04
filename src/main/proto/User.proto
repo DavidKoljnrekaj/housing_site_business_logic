@@ -13,6 +13,21 @@ message GetUserByIdResponse {
   string email = 4;
 }
 
+message CreateUserRequest {
+  string email = 1;
+  string name = 2;
+  string surname = 3;
+  string password = 4;
+}
+
+message CreateUserResponse {
+  string email = 1;
+  string name = 2;
+  string surname = 3;
+  string password = 4;
+}
+
 service UserService {
   rpc getUserById(GetUserByIdRequest) returns (GetUserByIdResponse);
+  rpc createUser(CreateUserRequest) returns (CreateUserResponse);
 }

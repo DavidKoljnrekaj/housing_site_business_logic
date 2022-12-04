@@ -27,7 +27,7 @@ public class BusinessLogicServiceImpl implements BusinessLogicService {
         GetUserByIdResponse response=stub.getUserById(GetUserByIdRequest.newBuilder()
                         .setUserId(id)
                 .build());
-        User user = new User(id, response.getName(), response.getSurname(),response.getEmail());
+        User user = new User(response.getName(), response.getSurname(),response.getEmail());
         Optional<User>user1=Optional.of(user);
         return user1;
     }
@@ -54,5 +54,12 @@ public class BusinessLogicServiceImpl implements BusinessLogicService {
         return housingListing1;
     }
 
+    @Override
+    public Optional<User> createUser(String email, String name, String surname, String password) {
+        CreateUserResponse response = stub.createUser(CreateUserRequest.newBuilder().setEmail(email).setName(name).setSurname(surname).setPassword(password).build());
 
+        User user = new User(response.getEmail(), response.getName(), response.getSurname());
+
+        return Optional.of(user);
+    }
 }

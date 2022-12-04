@@ -23,4 +23,5 @@ public interface BusinessLogicService {
                                                 List<String> imageContentType,
                                                 List<String> imageFileName,
                                                 double price);
+    Optional<User> createUser(String email, String name, String surname, String password);
 }

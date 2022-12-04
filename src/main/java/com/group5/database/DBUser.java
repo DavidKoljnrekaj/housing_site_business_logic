@@ -19,7 +19,7 @@ public class DBUser {
             e.printStackTrace();
         }
 
-        return new User(id, response.getName(), response.getSurname(), response.getEmail());
+        return new User(response.getEmail(), response.getName(), response.getSurname());
 
     }
 }
