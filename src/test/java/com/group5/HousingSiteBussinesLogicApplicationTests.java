@@ -1,16 +1,7 @@
 package com.group5;
 
-import com.group5.database.DBUser;
-import com.group5.service.BusinessLogicService;
-import com.group5.service.BusinessLogicServiceImpl;
-import io.grpc.ManagedChannel;
-import io.grpc.ManagedChannelBuilder;
-import io.grpc.StatusRuntimeException;
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class HousingSiteBussinesLogicApplicationTests {

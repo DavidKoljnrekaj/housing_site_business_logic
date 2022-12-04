@@ -20,10 +20,25 @@ public final class User {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_group5_proto_User_GetUserByIdRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_group5_proto_User_GetUserByIdResponse_descriptor;
+    internal_static_com_group5_proto_User_UserResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_group5_proto_User_GetUserByIdResponse_fieldAccessorTable;
+      internal_static_com_group5_proto_User_UserResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_group5_proto_User_RegistrationInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_group5_proto_User_RegistrationInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_group5_proto_User_LoginInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_group5_proto_User_LoginInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_group5_proto_User_LoginResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_group5_proto_User_LoginResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -34,13 +49,21 @@ public final class User {
   static {
     java.lang.String[] descriptorData = {
       "\n\nUser.proto\022\025com.group5.proto.User\"$\n\022G" +
-      "etUserByIdRequest\022\016\n\006userId\030\001 \001(\003\"O\n\023Get" +
-      "UserByIdResponse\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001" +
-      "(\t\022\017\n\007surname\030\003 \001(\t\022\r\n\005email\030\004 \001(\t2s\n\013Us" +
-      "erService\022d\n\013getUserById\022).com.group5.pr" +
-      "oto.User.GetUserByIdRequest\032*.com.group5" +
-      ".proto.User.GetUserByIdResponseB\002P\001b\006pro" +
-      "to3"
+      "etUserByIdRequest\022\016\n\006userId\030\001 \001(\003\"<\n\014Use" +
+      "rResponse\022\014\n\004name\030\001 \001(\t\022\017\n\007surname\030\002 \001(\t" +
+      "\022\r\n\005email\030\003 \001(\t\"R\n\020RegistrationInfo\022\014\n\004n" +
+      "ame\030\001 \001(\t\022\017\n\007surname\030\002 \001(\t\022\r\n\005email\030\003 \001(" +
+      "\t\022\020\n\010password\030\004 \001(\t\",\n\tLoginInfo\022\r\n\005emai" +
+      "l\030\003 \001(\t\022\020\n\010password\030\004 \001(\t\" \n\rLoginRespon" +
+      "se\022\017\n\007isValid\030\001 \001(\0102\244\002\n\013UserService\022]\n\013g" +
+      "etUserById\022).com.group5.proto.User.GetUs" +
+      "erByIdRequest\032#.com.group5.proto.User.Us" +
+      "erResponse\022\\\n\014registerUser\022\'.com.group5." +
+      "proto.User.RegistrationInfo\032#.com.group5" +
+      ".proto.User.UserResponse\022X\n\016checkLoginIn" +
+      "fo\022 .com.group5.proto.User.LoginInfo\032$.c" +
+      "om.group5.proto.User.LoginResponseB\002P\001b\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -52,12 +75,30 @@ public final class User {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_group5_proto_User_GetUserByIdRequest_descriptor,
         new java.lang.String[] { "UserId", });
-    internal_static_com_group5_proto_User_GetUserByIdResponse_descriptor =
+    internal_static_com_group5_proto_User_UserResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_com_group5_proto_User_GetUserByIdResponse_fieldAccessorTable = new
+    internal_static_com_group5_proto_User_UserResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_group5_proto_User_GetUserByIdResponse_descriptor,
-        new java.lang.String[] { "Id", "Name", "Surname", "Email", });
+        internal_static_com_group5_proto_User_UserResponse_descriptor,
+        new java.lang.String[] { "Name", "Surname", "Email", });
+    internal_static_com_group5_proto_User_RegistrationInfo_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_com_group5_proto_User_RegistrationInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_group5_proto_User_RegistrationInfo_descriptor,
+        new java.lang.String[] { "Name", "Surname", "Email", "Password", });
+    internal_static_com_group5_proto_User_LoginInfo_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_com_group5_proto_User_LoginInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_group5_proto_User_LoginInfo_descriptor,
+        new java.lang.String[] { "Email", "Password", });
+    internal_static_com_group5_proto_User_LoginResponse_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_com_group5_proto_User_LoginResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_group5_proto_User_LoginResponse_descriptor,
+        new java.lang.String[] { "IsValid", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
