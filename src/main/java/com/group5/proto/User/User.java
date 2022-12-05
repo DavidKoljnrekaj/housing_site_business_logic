@@ -20,7 +20,12 @@ public final class User {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_group5_proto_User_GetUserByIdRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_group5_proto_User_GetUserByIdResponse_descriptor;
+    internal_static_com_group5_proto_User_UserResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_group5_proto_User_UserResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_group5_proto_User_RegistrationInfo_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_group5_proto_User_GetUserByIdResponse_fieldAccessorTable;
@@ -68,9 +73,21 @@ public final class User {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_group5_proto_User_GetUserByIdRequest_descriptor,
         new java.lang.String[] { "UserId", });
-    internal_static_com_group5_proto_User_GetUserByIdResponse_descriptor =
+    internal_static_com_group5_proto_User_UserResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_com_group5_proto_User_GetUserByIdResponse_fieldAccessorTable = new
+    internal_static_com_group5_proto_User_UserResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_group5_proto_User_UserResponse_descriptor,
+        new java.lang.String[] { "Name", "Surname", "Email", });
+    internal_static_com_group5_proto_User_RegistrationInfo_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_com_group5_proto_User_RegistrationInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_group5_proto_User_RegistrationInfo_descriptor,
+        new java.lang.String[] { "Name", "Surname", "Email", "Password", });
+    internal_static_com_group5_proto_User_LoginInfo_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_com_group5_proto_User_LoginInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_group5_proto_User_GetUserByIdResponse_descriptor,
         new java.lang.String[] { "Id", "Name", "Surname", "Email", });
