@@ -15,28 +15,28 @@ public final class UserServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.group5.proto.User.GetUserByIdRequest,
-      com.group5.proto.User.GetUserByIdResponse> getGetUserByIdMethod;
+      com.group5.proto.User.UserResponse> getGetUserByIdMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "getUserById",
       requestType = com.group5.proto.User.GetUserByIdRequest.class,
-      responseType = com.group5.proto.User.GetUserByIdResponse.class,
+      responseType = com.group5.proto.User.UserResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.group5.proto.User.GetUserByIdRequest,
-      com.group5.proto.User.GetUserByIdResponse> getGetUserByIdMethod() {
-    io.grpc.MethodDescriptor<com.group5.proto.User.GetUserByIdRequest, com.group5.proto.User.GetUserByIdResponse> getGetUserByIdMethod;
+      com.group5.proto.User.UserResponse> getGetUserByIdMethod() {
+    io.grpc.MethodDescriptor<com.group5.proto.User.GetUserByIdRequest, com.group5.proto.User.UserResponse> getGetUserByIdMethod;
     if ((getGetUserByIdMethod = UserServiceGrpc.getGetUserByIdMethod) == null) {
       synchronized (UserServiceGrpc.class) {
         if ((getGetUserByIdMethod = UserServiceGrpc.getGetUserByIdMethod) == null) {
           UserServiceGrpc.getGetUserByIdMethod = getGetUserByIdMethod =
-              io.grpc.MethodDescriptor.<com.group5.proto.User.GetUserByIdRequest, com.group5.proto.User.GetUserByIdResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.group5.proto.User.GetUserByIdRequest, com.group5.proto.User.UserResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getUserById"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.group5.proto.User.GetUserByIdRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.group5.proto.User.GetUserByIdResponse.getDefaultInstance()))
+                  com.group5.proto.User.UserResponse.getDefaultInstance()))
               .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("getUserById"))
               .build();
         }
@@ -74,6 +74,68 @@ public final class UserServiceGrpc {
       }
     }
     return getCreateUserMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.group5.proto.User.RegistrationInfo,
+      com.group5.proto.User.UserResponse> getRegisterUserMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "registerUser",
+      requestType = com.group5.proto.User.RegistrationInfo.class,
+      responseType = com.group5.proto.User.UserResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.group5.proto.User.RegistrationInfo,
+      com.group5.proto.User.UserResponse> getRegisterUserMethod() {
+    io.grpc.MethodDescriptor<com.group5.proto.User.RegistrationInfo, com.group5.proto.User.UserResponse> getRegisterUserMethod;
+    if ((getRegisterUserMethod = UserServiceGrpc.getRegisterUserMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getRegisterUserMethod = UserServiceGrpc.getRegisterUserMethod) == null) {
+          UserServiceGrpc.getRegisterUserMethod = getRegisterUserMethod =
+              io.grpc.MethodDescriptor.<com.group5.proto.User.RegistrationInfo, com.group5.proto.User.UserResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "registerUser"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.group5.proto.User.RegistrationInfo.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.group5.proto.User.UserResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("registerUser"))
+              .build();
+        }
+      }
+    }
+    return getRegisterUserMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.group5.proto.User.LoginInfo,
+      com.group5.proto.User.LoginResponse> getCheckLoginInfoMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "checkLoginInfo",
+      requestType = com.group5.proto.User.LoginInfo.class,
+      responseType = com.group5.proto.User.LoginResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.group5.proto.User.LoginInfo,
+      com.group5.proto.User.LoginResponse> getCheckLoginInfoMethod() {
+    io.grpc.MethodDescriptor<com.group5.proto.User.LoginInfo, com.group5.proto.User.LoginResponse> getCheckLoginInfoMethod;
+    if ((getCheckLoginInfoMethod = UserServiceGrpc.getCheckLoginInfoMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getCheckLoginInfoMethod = UserServiceGrpc.getCheckLoginInfoMethod) == null) {
+          UserServiceGrpc.getCheckLoginInfoMethod = getCheckLoginInfoMethod =
+              io.grpc.MethodDescriptor.<com.group5.proto.User.LoginInfo, com.group5.proto.User.LoginResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "checkLoginInfo"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.group5.proto.User.LoginInfo.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.group5.proto.User.LoginResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("checkLoginInfo"))
+              .build();
+        }
+      }
+    }
+    return getCheckLoginInfoMethod;
   }
 
   /**
@@ -127,7 +189,7 @@ public final class UserServiceGrpc {
     /**
      */
     public void getUserById(com.group5.proto.User.GetUserByIdRequest request,
-        io.grpc.stub.StreamObserver<com.group5.proto.User.GetUserByIdResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<com.group5.proto.User.UserResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetUserByIdMethod(), responseObserver);
     }
 
@@ -138,6 +200,20 @@ public final class UserServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateUserMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void registerUser(com.group5.proto.User.RegistrationInfo request,
+        io.grpc.stub.StreamObserver<com.group5.proto.User.UserResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getRegisterUserMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void checkLoginInfo(com.group5.proto.User.LoginInfo request,
+        io.grpc.stub.StreamObserver<com.group5.proto.User.LoginResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCheckLoginInfoMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -145,7 +221,7 @@ public final class UserServiceGrpc {
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.group5.proto.User.GetUserByIdRequest,
-                com.group5.proto.User.GetUserByIdResponse>(
+                com.group5.proto.User.UserResponse>(
                   this, METHODID_GET_USER_BY_ID)))
           .addMethod(
             getCreateUserMethod(),
@@ -154,6 +230,20 @@ public final class UserServiceGrpc {
                 com.group5.proto.User.CreateUserRequest,
                 com.group5.proto.User.CreateUserResponse>(
                   this, METHODID_CREATE_USER)))
+          .addMethod(
+            getRegisterUserMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.group5.proto.User.RegistrationInfo,
+                com.group5.proto.User.UserResponse>(
+                  this, METHODID_REGISTER_USER)))
+          .addMethod(
+            getCheckLoginInfoMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.group5.proto.User.LoginInfo,
+                com.group5.proto.User.LoginResponse>(
+                  this, METHODID_CHECK_LOGIN_INFO)))
           .build();
     }
   }
@@ -175,7 +265,7 @@ public final class UserServiceGrpc {
     /**
      */
     public void getUserById(com.group5.proto.User.GetUserByIdRequest request,
-        io.grpc.stub.StreamObserver<com.group5.proto.User.GetUserByIdResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<com.group5.proto.User.UserResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetUserByIdMethod(), getCallOptions()), request, responseObserver);
     }
@@ -186,6 +276,22 @@ public final class UserServiceGrpc {
         io.grpc.stub.StreamObserver<com.group5.proto.User.CreateUserResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateUserMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void registerUser(com.group5.proto.User.RegistrationInfo request,
+        io.grpc.stub.StreamObserver<com.group5.proto.User.UserResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getRegisterUserMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void checkLoginInfo(com.group5.proto.User.LoginInfo request,
+        io.grpc.stub.StreamObserver<com.group5.proto.User.LoginResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getCheckLoginInfoMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -205,7 +311,7 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public com.group5.proto.User.GetUserByIdResponse getUserById(com.group5.proto.User.GetUserByIdRequest request) {
+    public com.group5.proto.User.UserResponse getUserById(com.group5.proto.User.GetUserByIdRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetUserByIdMethod(), getCallOptions(), request);
     }
@@ -215,6 +321,20 @@ public final class UserServiceGrpc {
     public com.group5.proto.User.CreateUserResponse createUser(com.group5.proto.User.CreateUserRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateUserMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.group5.proto.User.UserResponse registerUser(com.group5.proto.User.RegistrationInfo request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getRegisterUserMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.group5.proto.User.LoginResponse checkLoginInfo(com.group5.proto.User.LoginInfo request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getCheckLoginInfoMethod(), getCallOptions(), request);
     }
   }
 
@@ -234,7 +354,7 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.group5.proto.User.GetUserByIdResponse> getUserById(
+    public com.google.common.util.concurrent.ListenableFuture<com.group5.proto.User.UserResponse> getUserById(
         com.group5.proto.User.GetUserByIdRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetUserByIdMethod(), getCallOptions()), request);
@@ -247,10 +367,28 @@ public final class UserServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCreateUserMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.group5.proto.User.UserResponse> registerUser(
+        com.group5.proto.User.RegistrationInfo request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getRegisterUserMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.group5.proto.User.LoginResponse> checkLoginInfo(
+        com.group5.proto.User.LoginInfo request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getCheckLoginInfoMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_USER_BY_ID = 0;
   private static final int METHODID_CREATE_USER = 1;
+  private static final int METHODID_REGISTER_USER = 2;
+  private static final int METHODID_CHECK_LOGIN_INFO = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -271,11 +409,19 @@ public final class UserServiceGrpc {
       switch (methodId) {
         case METHODID_GET_USER_BY_ID:
           serviceImpl.getUserById((com.group5.proto.User.GetUserByIdRequest) request,
-              (io.grpc.stub.StreamObserver<com.group5.proto.User.GetUserByIdResponse>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.group5.proto.User.UserResponse>) responseObserver);
           break;
         case METHODID_CREATE_USER:
           serviceImpl.createUser((com.group5.proto.User.CreateUserRequest) request,
               (io.grpc.stub.StreamObserver<com.group5.proto.User.CreateUserResponse>) responseObserver);
+          break;
+        case METHODID_REGISTER_USER:
+          serviceImpl.registerUser((com.group5.proto.User.RegistrationInfo) request,
+              (io.grpc.stub.StreamObserver<com.group5.proto.User.UserResponse>) responseObserver);
+          break;
+        case METHODID_CHECK_LOGIN_INFO:
+          serviceImpl.checkLoginInfo((com.group5.proto.User.LoginInfo) request,
+              (io.grpc.stub.StreamObserver<com.group5.proto.User.LoginResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -340,6 +486,8 @@ public final class UserServiceGrpc {
               .setSchemaDescriptor(new UserServiceFileDescriptorSupplier())
               .addMethod(getGetUserByIdMethod())
               .addMethod(getCreateUserMethod())
+              .addMethod(getRegisterUserMethod())
+              .addMethod(getCheckLoginInfoMethod())
               .build();
         }
       }

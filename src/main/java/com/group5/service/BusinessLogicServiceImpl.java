@@ -1,6 +1,6 @@
 package com.group5.service;
 
-import com.group5.database.DatabaseServerConnection;
+import com.group5.database.DatabaseServerConn;
 import com.group5.model.HousingListing;
 import com.group5.model.User;
 import com.group5.proto.User.*;
@@ -19,12 +19,12 @@ public class BusinessLogicServiceImpl implements BusinessLogicService {
 
     public BusinessLogicServiceImpl()
     {
-        stub=DatabaseServerConnection.getStub();
-        stub1=DatabaseServerConnection.getStub1();
+        stub=DatabaseServerConn.getUserBlockingStub();
+        stub1=DatabaseServerConn.getListingBlockingStub();
     }
     public Optional<User> findUserById(Long id)
     {
-        GetUserByIdResponse response=stub.getUserById(GetUserByIdRequest.newBuilder()
+        UserResponse response=stub.getUserById(GetUserByIdRequest.newBuilder()
                         .setUserId(id)
                 .build());
         User user = new User(response.getName(), response.getSurname(),response.getEmail());
@@ -35,7 +35,7 @@ public class BusinessLogicServiceImpl implements BusinessLogicService {
     @Override
     public Optional<HousingListing> createHouseListing(String street, int postNumber, String city, int houseNo, int constructionYear, int lastRebuilt, boolean hasInspection, double groundArea, double floorArea, List<String> imageBase64Data, List<String> imageContentType, List<String> imageFileName, double price) {
 
-        CreateHouseListingResponse response = stub1.createListing(CreateHouseListingRequest.newBuilder()
+        HouseResponse response = stub1.createListing(CreateHouseListingRequest.newBuilder()
                 .setStreet(street)
                 .setPostNumber(postNumber)
                 .setCity(city).setHouseNo(houseNo)
