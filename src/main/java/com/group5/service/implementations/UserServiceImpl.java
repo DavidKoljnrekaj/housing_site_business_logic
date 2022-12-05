@@ -20,22 +20,21 @@ public class UserServiceImpl implements UserService {
         stub=DatabaseServerConn.getUserStub();
     }
 
-    public User getUserById(long id){
+    @Override
+    public User getUserById(String email){
 
         UserResponse response = null;
         try{
             response = blockingStub.getUserById(GetUserByIdRequest.newBuilder()
-                    .setUserId(id).build());
+                    .setEmail(email).build());
         } catch (StatusRuntimeException e) {
             System.out.println("User not found");
             e.printStackTrace();
         }
-
         return new User(response.getEmail(), response.getName(), response.getSurname());
-
     }
 
-
+    @Override
     public Optional<User> createUser(String email, String name, String surname, String password) {
         CreateUserResponse response = blockingStub.createUser(CreateUserRequest.newBuilder().setEmail(email).setName(name).setSurname(surname).setPassword(password).build());
 
@@ -44,5 +43,10 @@ public class UserServiceImpl implements UserService {
         return Optional.of(user);
     }
 
+    @Override
+    public boolean Login(String email, String password) {
+        LoginResponse response = blockingStub.checkLoginInfo(LoginInfo.newBuilder().setEmail(email).setPassword(password).build());
 
+        return response.getIsValid();
+    }
 }

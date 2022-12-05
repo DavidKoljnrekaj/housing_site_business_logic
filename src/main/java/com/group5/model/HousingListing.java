@@ -20,9 +20,11 @@ public class HousingListing {
     private final double price;
     private final long id;
 
+    private final String userEmail;
 
 
-    public HousingListing(long id, String street, int postNumber, String city, int houseNo, int constructionYear, int lastRebuilt, boolean hasInspection, double groundArea, double floorArea, List<String> imageBase64Data, List<String> imageContentType, List<String> imageFileName, double price) {
+
+    public HousingListing(long id, String street, int postNumber, String city, int houseNo, int constructionYear, int lastRebuilt, boolean hasInspection, double groundArea, double floorArea, List<String> imageBase64Data, List<String> imageContentType, List<String> imageFileName, double price, String userEmail) {
         this.id = id;
         this.street = street;
         this.postNumber = postNumber;
@@ -37,6 +39,11 @@ public class HousingListing {
         this.imageContentType = imageContentType;
         this.imageFileName = imageFileName;
         this.price = price;
+        this.userEmail = userEmail;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
     }
 
     public long getId() {

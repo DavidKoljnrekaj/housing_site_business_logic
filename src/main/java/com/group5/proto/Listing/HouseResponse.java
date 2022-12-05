@@ -21,6 +21,7 @@ private static final long serialVersionUID = 0L;
     imageBase64Data_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     imageContentType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     imageFileName_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    userEmail_ = "";
     creationDate_ = "";
   }
 
@@ -140,6 +141,12 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 122: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            userEmail_ = s;
+            break;
+          }
+          case 130: {
             java.lang.String s = input.readStringRequireUtf8();
 
             creationDate_ = s;
@@ -468,10 +475,48 @@ private static final long serialVersionUID = 0L;
     return price_;
   }
 
-  public static final int CREATIONDATE_FIELD_NUMBER = 15;
+  public static final int USEREMAIL_FIELD_NUMBER = 15;
+  private volatile java.lang.Object userEmail_;
+  /**
+   * <code>string userEmail = 15;</code>
+   * @return The userEmail.
+   */
+  @java.lang.Override
+  public java.lang.String getUserEmail() {
+    java.lang.Object ref = userEmail_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      userEmail_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string userEmail = 15;</code>
+   * @return The bytes for userEmail.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getUserEmailBytes() {
+    java.lang.Object ref = userEmail_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      userEmail_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CREATIONDATE_FIELD_NUMBER = 16;
   private volatile java.lang.Object creationDate_;
   /**
-   * <code>string creationDate = 15;</code>
+   * <code>string creationDate = 16;</code>
    * @return The creationDate.
    */
   @java.lang.Override
@@ -488,7 +533,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string creationDate = 15;</code>
+   * <code>string creationDate = 16;</code>
    * @return The bytes for creationDate.
    */
   @java.lang.Override
@@ -562,8 +607,11 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToRawLongBits(price_) != 0) {
       output.writeDouble(14, price_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userEmail_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 15, userEmail_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(creationDate_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 15, creationDate_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 16, creationDate_);
     }
     unknownFields.writeTo(output);
   }
@@ -640,8 +688,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(14, price_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userEmail_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, userEmail_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(creationDate_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, creationDate_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, creationDate_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -689,6 +740,8 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToLongBits(getPrice())
         != java.lang.Double.doubleToLongBits(
             other.getPrice())) return false;
+    if (!getUserEmail()
+        .equals(other.getUserEmail())) return false;
     if (!getCreationDate()
         .equals(other.getCreationDate())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -741,6 +794,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + PRICE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getPrice()));
+    hash = (37 * hash) + USEREMAIL_FIELD_NUMBER;
+    hash = (53 * hash) + getUserEmail().hashCode();
     hash = (37 * hash) + CREATIONDATE_FIELD_NUMBER;
     hash = (53 * hash) + getCreationDate().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -904,6 +959,8 @@ private static final long serialVersionUID = 0L;
       bitField0_ = (bitField0_ & ~0x00000004);
       price_ = 0D;
 
+      userEmail_ = "";
+
       creationDate_ = "";
 
       return this;
@@ -959,6 +1016,7 @@ private static final long serialVersionUID = 0L;
       }
       result.imageFileName_ = imageFileName_;
       result.price_ = price_;
+      result.userEmail_ = userEmail_;
       result.creationDate_ = creationDate_;
       onBuilt();
       return result;
@@ -1072,6 +1130,10 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getPrice() != 0D) {
         setPrice(other.getPrice());
+      }
+      if (!other.getUserEmail().isEmpty()) {
+        userEmail_ = other.userEmail_;
+        onChanged();
       }
       if (!other.getCreationDate().isEmpty()) {
         creationDate_ = other.creationDate_;
@@ -1868,9 +1930,85 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object userEmail_ = "";
+    /**
+     * <code>string userEmail = 15;</code>
+     * @return The userEmail.
+     */
+    public java.lang.String getUserEmail() {
+      java.lang.Object ref = userEmail_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userEmail_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string userEmail = 15;</code>
+     * @return The bytes for userEmail.
+     */
+    public com.google.protobuf.ByteString
+        getUserEmailBytes() {
+      java.lang.Object ref = userEmail_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userEmail_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string userEmail = 15;</code>
+     * @param value The userEmail to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUserEmail(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      userEmail_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string userEmail = 15;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUserEmail() {
+      
+      userEmail_ = getDefaultInstance().getUserEmail();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string userEmail = 15;</code>
+     * @param value The bytes for userEmail to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUserEmailBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      userEmail_ = value;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object creationDate_ = "";
     /**
-     * <code>string creationDate = 15;</code>
+     * <code>string creationDate = 16;</code>
      * @return The creationDate.
      */
     public java.lang.String getCreationDate() {
@@ -1886,7 +2024,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string creationDate = 15;</code>
+     * <code>string creationDate = 16;</code>
      * @return The bytes for creationDate.
      */
     public com.google.protobuf.ByteString
@@ -1903,7 +2041,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string creationDate = 15;</code>
+     * <code>string creationDate = 16;</code>
      * @param value The creationDate to set.
      * @return This builder for chaining.
      */
@@ -1918,7 +2056,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string creationDate = 15;</code>
+     * <code>string creationDate = 16;</code>
      * @return This builder for chaining.
      */
     public Builder clearCreationDate() {
@@ -1928,7 +2066,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string creationDate = 15;</code>
+     * <code>string creationDate = 16;</code>
      * @param value The bytes for creationDate to set.
      * @return This builder for chaining.
      */

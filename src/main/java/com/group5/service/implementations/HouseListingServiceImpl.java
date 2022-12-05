@@ -33,7 +33,7 @@ public class HouseListingServiceImpl implements HouseListingService {
             e.printStackTrace();
             return null;
         }
-        return new HousingListing(response.getId(), response.getStreet(), response.getPostNumber(), response.getCity(), response.getHouseNo(), response.getConstructionYear(), response.getLastRebuilt(), response.getHasInspection(), response.getGroundArea(), response.getFloorArea(), response.getImageBase64DataList(), response.getImageContentTypeList(), response.getImageFileNameList(), response.getPrice());
+        return new HousingListing(response.getId(), response.getStreet(), response.getPostNumber(), response.getCity(), response.getHouseNo(), response.getConstructionYear(), response.getLastRebuilt(), response.getHasInspection(), response.getGroundArea(), response.getFloorArea(), response.getImageBase64DataList(), response.getImageContentTypeList(), response.getImageFileNameList(), response.getPrice(), response.getUserEmail());
     }
 
     @Override
@@ -58,6 +58,7 @@ public class HouseListingServiceImpl implements HouseListingService {
                     .addAllImageContentType(listing.getAllContentType())
                     .addAllImageFileName(listing.getAllFileName())
                     .setPrice(listing.getPrice())
+                    .setUserEmail("the email will be here")
                     .build());
         }
         catch (StatusRuntimeException e){
@@ -65,7 +66,7 @@ public class HouseListingServiceImpl implements HouseListingService {
             e.printStackTrace();
             return null;
         }
-        return new HousingListing(response.getId(), response.getStreet(), response.getPostNumber(), response.getCity(), response.getHouseNo(), response.getConstructionYear(), response.getLastRebuilt(), response.getHasInspection(), response.getGroundArea(), response.getFloorArea(), response.getImageBase64DataList(), response.getImageContentTypeList(), response.getImageFileNameList(), response.getPrice());
+        return new HousingListing(response.getId(), response.getStreet(), response.getPostNumber(), response.getCity(), response.getHouseNo(), response.getConstructionYear(), response.getLastRebuilt(), response.getHasInspection(), response.getGroundArea(), response.getFloorArea(), response.getImageBase64DataList(), response.getImageContentTypeList(), response.getImageFileNameList(), response.getPrice(), response.getUserEmail());
 
     }
 }

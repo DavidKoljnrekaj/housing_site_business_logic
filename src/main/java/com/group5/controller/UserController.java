@@ -19,10 +19,10 @@ public class UserController {
         this.userService=userService;
     }
 
-    @GetMapping(value="/user/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> getUserById(@PathVariable("id") Long id){
+    @GetMapping(value="/user/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Object> getUser(@PathVariable("email") String email){
         try {
-            Optional<User> user = Optional.ofNullable(userService.getUserById(id));
+            Optional<User> user = Optional.ofNullable(userService.getUserById(email));
             return user.map(value -> new ResponseEntity<Object>(value, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.OK));
         } catch (Exception ex) {
             return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
@@ -36,5 +36,15 @@ public class UserController {
                                      @RequestParam(value = "password", defaultValue = "Null") String password){
         Optional<User> user = userService.createUser(email, name, surname, password);
         return user;
+    }
+
+    @PostMapping("/login")
+    public User login(@RequestParam(value = "email") String email,
+                         @RequestParam(value = "password") String password){
+        if(userService.Login(email, password)){
+            return userService.getUserById(email);
+        }else{
+            return null;
+        }
     }
 }

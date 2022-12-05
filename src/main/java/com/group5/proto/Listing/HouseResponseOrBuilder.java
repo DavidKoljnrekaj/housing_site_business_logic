@@ -161,12 +161,24 @@ public interface HouseResponseOrBuilder extends
   double getPrice();
 
   /**
-   * <code>string creationDate = 15;</code>
+   * <code>string userEmail = 15;</code>
+   * @return The userEmail.
+   */
+  java.lang.String getUserEmail();
+  /**
+   * <code>string userEmail = 15;</code>
+   * @return The bytes for userEmail.
+   */
+  com.google.protobuf.ByteString
+      getUserEmailBytes();
+
+  /**
+   * <code>string creationDate = 16;</code>
    * @return The creationDate.
    */
   java.lang.String getCreationDate();
   /**
-   * <code>string creationDate = 15;</code>
+   * <code>string creationDate = 16;</code>
    * @return The bytes for creationDate.
    */
   com.google.protobuf.ByteString

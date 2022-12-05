@@ -58,28 +58,28 @@ public final class User {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nUser.proto\022\025com.group5.proto.User\"$\n\022G" +
-      "etUserByIdRequest\022\016\n\006userId\030\001 \001(\003\"<\n\014Use" +
-      "rResponse\022\014\n\004name\030\001 \001(\t\022\017\n\007surname\030\002 \001(\t" +
-      "\022\r\n\005email\030\003 \001(\t\"R\n\020RegistrationInfo\022\014\n\004n" +
-      "ame\030\001 \001(\t\022\017\n\007surname\030\002 \001(\t\022\r\n\005email\030\003 \001(" +
-      "\t\022\020\n\010password\030\004 \001(\t\"S\n\021CreateUserRequest" +
-      "\022\r\n\005email\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\017\n\007surname" +
-      "\030\003 \001(\t\022\020\n\010password\030\004 \001(\t\"T\n\022CreateUserRe" +
-      "sponse\022\r\n\005email\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\017\n\007s" +
-      "urname\030\003 \001(\t\022\020\n\010password\030\004 \001(\t\",\n\tLoginI" +
-      "nfo\022\r\n\005email\030\003 \001(\t\022\020\n\010password\030\004 \001(\t\" \n\r" +
-      "LoginResponse\022\017\n\007isValid\030\001 \001(\0102\207\003\n\013UserS" +
-      "ervice\022]\n\013getUserById\022).com.group5.proto" +
-      ".User.GetUserByIdRequest\032#.com.group5.pr" +
-      "oto.User.UserResponse\022a\n\ncreateUser\022(.co" +
-      "m.group5.proto.User.CreateUserRequest\032)." +
-      "com.group5.proto.User.CreateUserResponse" +
-      "\022\\\n\014registerUser\022\'.com.group5.proto.User" +
-      ".RegistrationInfo\032#.com.group5.proto.Use" +
-      "r.UserResponse\022X\n\016checkLoginInfo\022 .com.g" +
-      "roup5.proto.User.LoginInfo\032$.com.group5." +
-      "proto.User.LoginResponseB\002P\001b\006proto3"
+      "\n\nUser.proto\022\025com.group5.proto.User\"#\n\022G" +
+      "etUserByIdRequest\022\r\n\005email\030\001 \001(\t\"<\n\014User" +
+      "Response\022\014\n\004name\030\001 \001(\t\022\017\n\007surname\030\002 \001(\t\022" +
+      "\r\n\005email\030\003 \001(\t\"R\n\020RegistrationInfo\022\014\n\004na" +
+      "me\030\001 \001(\t\022\017\n\007surname\030\002 \001(\t\022\r\n\005email\030\003 \001(\t" +
+      "\022\020\n\010password\030\004 \001(\t\"S\n\021CreateUserRequest\022" +
+      "\r\n\005email\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\017\n\007surname\030" +
+      "\003 \001(\t\022\020\n\010password\030\004 \001(\t\"T\n\022CreateUserRes" +
+      "ponse\022\r\n\005email\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\017\n\007su" +
+      "rname\030\003 \001(\t\022\020\n\010password\030\004 \001(\t\",\n\tLoginIn" +
+      "fo\022\r\n\005email\030\003 \001(\t\022\020\n\010password\030\004 \001(\t\" \n\rL" +
+      "oginResponse\022\017\n\007isValid\030\001 \001(\0102\207\003\n\013UserSe" +
+      "rvice\022]\n\013getUserById\022).com.group5.proto." +
+      "User.GetUserByIdRequest\032#.com.group5.pro" +
+      "to.User.UserResponse\022a\n\ncreateUser\022(.com" +
+      ".group5.proto.User.CreateUserRequest\032).c" +
+      "om.group5.proto.User.CreateUserResponse\022" +
+      "\\\n\014registerUser\022\'.com.group5.proto.User." +
+      "RegistrationInfo\032#.com.group5.proto.User" +
+      ".UserResponse\022X\n\016checkLoginInfo\022 .com.gr" +
+      "oup5.proto.User.LoginInfo\032$.com.group5.p" +
+      "roto.User.LoginResponseB\002P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -90,7 +90,7 @@ public final class User {
     internal_static_com_group5_proto_User_GetUserByIdRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_group5_proto_User_GetUserByIdRequest_descriptor,
-        new java.lang.String[] { "UserId", });
+        new java.lang.String[] { "Email", });
     internal_static_com_group5_proto_User_UserResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_group5_proto_User_UserResponse_fieldAccessorTable = new

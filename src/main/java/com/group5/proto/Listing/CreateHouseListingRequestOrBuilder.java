@@ -153,4 +153,16 @@ public interface CreateHouseListingRequestOrBuilder extends
    * @return The price.
    */
   double getPrice();
+
+  /**
+   * <code>string userEmail = 14;</code>
+   * @return The userEmail.
+   */
+  java.lang.String getUserEmail();
+  /**
+   * <code>string userEmail = 14;</code>
+   * @return The bytes for userEmail.
+   */
+  com.google.protobuf.ByteString
+      getUserEmailBytes();
 }

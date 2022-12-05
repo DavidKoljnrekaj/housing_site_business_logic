@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private GetUserByIdRequest() {
+    email_ = "";
   }
 
   @java.lang.Override
@@ -48,9 +49,10 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 8: {
+          case 10: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-            userId_ = input.readInt64();
+            email_ = s;
             break;
           }
           default: {
@@ -87,15 +89,42 @@ private static final long serialVersionUID = 0L;
             com.group5.proto.User.GetUserByIdRequest.class, com.group5.proto.User.GetUserByIdRequest.Builder.class);
   }
 
-  public static final int USERID_FIELD_NUMBER = 1;
-  private long userId_;
+  public static final int EMAIL_FIELD_NUMBER = 1;
+  private volatile java.lang.Object email_;
   /**
-   * <code>int64 userId = 1;</code>
-   * @return The userId.
+   * <code>string email = 1;</code>
+   * @return The email.
    */
   @java.lang.Override
-  public long getUserId() {
-    return userId_;
+  public java.lang.String getEmail() {
+    java.lang.Object ref = email_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      email_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string email = 1;</code>
+   * @return The bytes for email.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getEmailBytes() {
+    java.lang.Object ref = email_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      email_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -112,8 +141,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (userId_ != 0L) {
-      output.writeInt64(1, userId_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(email_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, email_);
     }
     unknownFields.writeTo(output);
   }
@@ -124,9 +153,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (userId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, userId_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(email_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, email_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -143,8 +171,8 @@ private static final long serialVersionUID = 0L;
     }
     com.group5.proto.User.GetUserByIdRequest other = (com.group5.proto.User.GetUserByIdRequest) obj;
 
-    if (getUserId()
-        != other.getUserId()) return false;
+    if (!getEmail()
+        .equals(other.getEmail())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -156,9 +184,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + USERID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getUserId());
+    hash = (37 * hash) + EMAIL_FIELD_NUMBER;
+    hash = (53 * hash) + getEmail().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -292,7 +319,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      userId_ = 0L;
+      email_ = "";
 
       return this;
     }
@@ -320,7 +347,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.group5.proto.User.GetUserByIdRequest buildPartial() {
       com.group5.proto.User.GetUserByIdRequest result = new com.group5.proto.User.GetUserByIdRequest(this);
-      result.userId_ = userId_;
+      result.email_ = email_;
       onBuilt();
       return result;
     }
@@ -369,8 +396,9 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.group5.proto.User.GetUserByIdRequest other) {
       if (other == com.group5.proto.User.GetUserByIdRequest.getDefaultInstance()) return this;
-      if (other.getUserId() != 0L) {
-        setUserId(other.getUserId());
+      if (!other.getEmail().isEmpty()) {
+        email_ = other.email_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -401,33 +429,78 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long userId_ ;
+    private java.lang.Object email_ = "";
     /**
-     * <code>int64 userId = 1;</code>
-     * @return The userId.
+     * <code>string email = 1;</code>
+     * @return The email.
      */
-    @java.lang.Override
-    public long getUserId() {
-      return userId_;
+    public java.lang.String getEmail() {
+      java.lang.Object ref = email_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        email_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>int64 userId = 1;</code>
-     * @param value The userId to set.
+     * <code>string email = 1;</code>
+     * @return The bytes for email.
+     */
+    public com.google.protobuf.ByteString
+        getEmailBytes() {
+      java.lang.Object ref = email_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        email_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string email = 1;</code>
+     * @param value The email to set.
      * @return This builder for chaining.
      */
-    public Builder setUserId(long value) {
-      
-      userId_ = value;
+    public Builder setEmail(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      email_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 userId = 1;</code>
+     * <code>string email = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearUserId() {
+    public Builder clearEmail() {
       
-      userId_ = 0L;
+      email_ = getDefaultInstance().getEmail();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string email = 1;</code>
+     * @param value The bytes for email to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEmailBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      email_ = value;
       onChanged();
       return this;
     }

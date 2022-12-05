@@ -17,6 +17,7 @@ message CreateHouseListingRequest {
   repeated string imageContentType = 11;
   repeated string imageFileName = 12;
   double price = 13;
+  string userEmail = 14;
 }
 
 message IdRequest{
@@ -38,7 +39,8 @@ message HouseResponse {
   repeated string imageContentType = 12;
   repeated string imageFileName = 13;
   double price = 14;
-  string creationDate = 15;
+  string userEmail = 15;
+  string creationDate = 16;
 }
 
 message ListingFiltersRequest{

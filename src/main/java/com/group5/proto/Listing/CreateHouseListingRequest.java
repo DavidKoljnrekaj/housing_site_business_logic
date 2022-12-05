@@ -21,6 +21,7 @@ private static final long serialVersionUID = 0L;
     imageBase64Data_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     imageContentType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     imageFileName_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    userEmail_ = "";
   }
 
   @java.lang.Override
@@ -131,6 +132,12 @@ private static final long serialVersionUID = 0L;
           case 105: {
 
             price_ = input.readDouble();
+            break;
+          }
+          case 114: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            userEmail_ = s;
             break;
           }
           default: {
@@ -445,6 +452,44 @@ private static final long serialVersionUID = 0L;
     return price_;
   }
 
+  public static final int USEREMAIL_FIELD_NUMBER = 14;
+  private volatile java.lang.Object userEmail_;
+  /**
+   * <code>string userEmail = 14;</code>
+   * @return The userEmail.
+   */
+  @java.lang.Override
+  public java.lang.String getUserEmail() {
+    java.lang.Object ref = userEmail_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      userEmail_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string userEmail = 14;</code>
+   * @return The bytes for userEmail.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getUserEmailBytes() {
+    java.lang.Object ref = userEmail_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      userEmail_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -497,6 +542,9 @@ private static final long serialVersionUID = 0L;
     }
     if (java.lang.Double.doubleToRawLongBits(price_) != 0) {
       output.writeDouble(13, price_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userEmail_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 14, userEmail_);
     }
     unknownFields.writeTo(output);
   }
@@ -569,6 +617,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(13, price_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userEmail_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, userEmail_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -613,6 +664,8 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToLongBits(getPrice())
         != java.lang.Double.doubleToLongBits(
             other.getPrice())) return false;
+    if (!getUserEmail()
+        .equals(other.getUserEmail())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -660,6 +713,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + PRICE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getPrice()));
+    hash = (37 * hash) + USEREMAIL_FIELD_NUMBER;
+    hash = (53 * hash) + getUserEmail().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -819,6 +874,8 @@ private static final long serialVersionUID = 0L;
       bitField0_ = (bitField0_ & ~0x00000004);
       price_ = 0D;
 
+      userEmail_ = "";
+
       return this;
     }
 
@@ -871,6 +928,7 @@ private static final long serialVersionUID = 0L;
       }
       result.imageFileName_ = imageFileName_;
       result.price_ = price_;
+      result.userEmail_ = userEmail_;
       onBuilt();
       return result;
     }
@@ -980,6 +1038,10 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getPrice() != 0D) {
         setPrice(other.getPrice());
+      }
+      if (!other.getUserEmail().isEmpty()) {
+        userEmail_ = other.userEmail_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1737,6 +1799,82 @@ private static final long serialVersionUID = 0L;
     public Builder clearPrice() {
       
       price_ = 0D;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object userEmail_ = "";
+    /**
+     * <code>string userEmail = 14;</code>
+     * @return The userEmail.
+     */
+    public java.lang.String getUserEmail() {
+      java.lang.Object ref = userEmail_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userEmail_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string userEmail = 14;</code>
+     * @return The bytes for userEmail.
+     */
+    public com.google.protobuf.ByteString
+        getUserEmailBytes() {
+      java.lang.Object ref = userEmail_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userEmail_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string userEmail = 14;</code>
+     * @param value The userEmail to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUserEmail(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      userEmail_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string userEmail = 14;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUserEmail() {
+      
+      userEmail_ = getDefaultInstance().getUserEmail();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string userEmail = 14;</code>
+     * @param value The bytes for userEmail to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUserEmailBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      userEmail_ = value;
       onChanged();
       return this;
     }
