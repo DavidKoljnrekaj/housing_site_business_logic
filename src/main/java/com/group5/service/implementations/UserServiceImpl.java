@@ -2,6 +2,7 @@ package com.group5.service.implementations;
 
 import com.group5.database.DatabaseServerConn;
 import com.group5.model.User;
+import com.group5.model.UserDTO;
 import com.group5.proto.User.*;
 import com.group5.service.services.UserService;
 import io.grpc.StatusRuntimeException;
@@ -35,12 +36,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> createUser(String email, String name, String surname, String password) {
-        CreateUserResponse response = blockingStub.createUser(CreateUserRequest.newBuilder().setEmail(email).setName(name).setSurname(surname).setPassword(password).build());
+    public Optional<User> createUser(UserDTO user) {
+        CreateUserResponse response = blockingStub.createUser(CreateUserRequest.newBuilder().setEmail(user.getEmail()).setName(user.getName()).setSurname(user.getSurname()).setPassword(user.getPassword()).build());
 
-        User user = new User(response.getEmail(), response.getName(), response.getSurname());
+        User user1 = new User(response.getEmail(), response.getName(), response.getSurname());
 
-        return Optional.of(user);
+        return Optional.of(user1);
     }
 
     @Override

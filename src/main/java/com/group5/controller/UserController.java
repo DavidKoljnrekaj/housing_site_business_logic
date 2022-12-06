@@ -1,5 +1,7 @@
 package com.group5.controller;
+
 import com.group5.model.User;
+import com.group5.model.UserDTO;
 import com.group5.service.implementations.UserServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -30,12 +32,8 @@ public class UserController {
     }
 
     @PostMapping("/createUser")
-    public Optional<User> createUser(@RequestParam(value = "email", defaultValue = "Null") String email,
-                                     @RequestParam(value = "name", defaultValue = "Null") String name,
-                                     @RequestParam(value = "surname", defaultValue = "Null") String surname,
-                                     @RequestParam(value = "password", defaultValue = "Null") String password){
-        Optional<User> user = userService.createUser(email, name, surname, password);
-        return user;
+    public Optional<User> createUser(@RequestBody UserDTO user){
+        return userService.createUser(user);
     }
 
     @PostMapping("/login")

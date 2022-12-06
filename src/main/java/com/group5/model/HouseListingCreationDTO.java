@@ -13,9 +13,9 @@ public class HouseListingCreationDTO {
     private List<ImageFile> images;
     private long price;
 
-    public HouseListingCreationDTO(Address adress, int constructionYear, int lastRebuilt, boolean hasInspection, double groundArea, double floorArea, List<ImageFile> images, long price)
+    public HouseListingCreationDTO(Address address, int constructionYear, int lastRebuilt, boolean hasInspection, double groundArea, double floorArea, List<ImageFile> images, long price)
     {
-        this.address = adress;
+        this.address = address;
         this.constructionYear = constructionYear;
         this.lastRebuilt = lastRebuilt;
         this.hasInspection = hasInspection;
