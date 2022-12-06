@@ -2,7 +2,7 @@ package com.group5.model;
 
 import java.util.List;
 
-public class HousingListing {
+public class HouseListing {
 
 
     private final String street;
@@ -24,7 +24,7 @@ public class HousingListing {
 
 
 
-    public HousingListing(long id, String street, int postNumber, String city, int houseNo, int constructionYear, int lastRebuilt, boolean hasInspection, double groundArea, double floorArea, List<String> imageBase64Data, List<String> imageContentType, List<String> imageFileName, double price, String userEmail) {
+    public HouseListing(long id, String street, int postNumber, String city, int houseNo, int constructionYear, int lastRebuilt, boolean hasInspection, double groundArea, double floorArea, List<String> imageBase64Data, List<String> imageContentType, List<String> imageFileName, double price, String userEmail) {
         this.id = id;
         this.street = street;
         this.postNumber = postNumber;

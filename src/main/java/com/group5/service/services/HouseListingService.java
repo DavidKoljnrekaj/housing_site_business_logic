@@ -1,15 +1,16 @@
 package com.group5.service.services;
 
 import com.group5.model.HouseListingCreationDTO;
-import com.group5.model.HousingListing;
+import com.group5.model.HouseListing;
+import com.group5.model.HouseListingShort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface HouseListingService {
-    HousingListing getHouseListingById(long id);
-    ArrayList<HousingListing> getHouseListings(int maxPrice, int minArea, int postNumber);
-    HousingListing addListing(HouseListingCreationDTO listing);
+    HouseListing getHouseListingById(long id);
+    ArrayList<HouseListingShort> getHouseListings(Optional<Integer> maxPrice, Optional<Integer> minArea, Optional<Integer> postNumber);
+    HouseListing addListing(HouseListingCreationDTO listing);
 }
