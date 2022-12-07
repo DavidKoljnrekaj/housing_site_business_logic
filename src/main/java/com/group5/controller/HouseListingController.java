@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/houselisting")
+@RequestMapping("/listing")
 public class HouseListingController {
     private HouseListingServiceImpl houseListingService;
     public HouseListingController(HouseListingServiceImpl houseListingService)
@@ -19,21 +19,21 @@ public class HouseListingController {
         this.houseListingService=houseListingService;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/houselisting/{id}")
     public HouseListing getHouseListingById(@PathVariable("id") long id){
         return houseListingService.getHouseListingById(id);
     }
 
-    @GetMapping("/")
+    @GetMapping("/houselisting")
     public ArrayList<HouseListingShort> getHousingListings(@RequestParam("maxPrice") Optional<Integer> maxPrice,
                                                            @RequestParam("minArea")Optional<Integer> minArea,
                                                            @RequestParam("postNumber")Optional<Integer> postNumber){
         return houseListingService.getHouseListings(maxPrice,minArea,postNumber);
     }
     
-    @PostMapping("/")
-    public HouseListing addHousingListing(@RequestBody HouseListingCreationDTO listing)
+    @PostMapping(value= "/houselisting" , consumes = "application/json;charset=UTF-8" )
+    public HouseListing addHousingListing(@RequestBody HouseListingCreationDTO dto)
     {
-        return houseListingService.addListing(listing);
+        return houseListingService.addListing(dto);
     }
 }

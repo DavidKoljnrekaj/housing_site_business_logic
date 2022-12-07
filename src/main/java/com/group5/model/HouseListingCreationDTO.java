@@ -5,22 +5,22 @@ import java.util.List;
 
 public class HouseListingCreationDTO {
     private Address address;
-    private int constructionYear;
-    private int lastRebuilt;
-    private boolean hasInspection;
-    private double groundArea;
-    private double floorArea;
+    private int ConstructionYear;
+    private int LastRebuilt;
+    private boolean HasInspection;
+    private double GroundArea;
+    private double FloorArea;
     private List<ImageFile> images;
     private long price;
 
-    public HouseListingCreationDTO(Address address, int constructionYear, int lastRebuilt, boolean hasInspection, double groundArea, double floorArea, List<ImageFile> images, long price)
+    public HouseListingCreationDTO(Address address, int ConstructionYear, int LastRebuilt, boolean HasInspection, double GroundArea, double FloorArea, List<ImageFile> images, long price)
     {
         this.address = address;
-        this.constructionYear = constructionYear;
-        this.lastRebuilt = lastRebuilt;
-        this.hasInspection = hasInspection;
-        this.groundArea = groundArea;
-        this.floorArea = floorArea;
+        this.ConstructionYear = ConstructionYear;
+        this.LastRebuilt = LastRebuilt;
+        this.HasInspection = HasInspection;
+        this.GroundArea = GroundArea;
+        this.FloorArea = FloorArea;
         this.images = images;
         this.price = price;
     }
@@ -33,44 +33,44 @@ public class HouseListingCreationDTO {
         this.address = address;
     }
 
-    public int getConstructionYear() {
-        return constructionYear;
+    public int getConstructionyear() {
+        return ConstructionYear;
     }
 
-    public void setConstructionYear(int constructionYear) {
-        this.constructionYear = constructionYear;
+    public void setConstructionyear(int constructionyear) {
+        this.ConstructionYear = constructionyear;
     }
 
-    public int getLastRebuilt() {
-        return lastRebuilt;
+    public int getLastrebuilt() {
+        return LastRebuilt;
     }
 
-    public void setLastRebuilt(int lastRebuilt) {
-        this.lastRebuilt = lastRebuilt;
+    public void setLastrebuilt(int lastrebuilt) {
+        this.LastRebuilt = lastrebuilt;
     }
 
-    public boolean isHasInspection() {
-        return hasInspection;
+    public boolean isHasinspection() {
+        return HasInspection;
     }
 
-    public void setHasInspection(boolean hasInspection) {
-        this.hasInspection = hasInspection;
+    public void setHasinspection(boolean hasinspection) {
+        this.HasInspection = hasinspection;
     }
 
-    public double getGroundArea() {
-        return groundArea;
+    public double getGroundarea() {
+        return GroundArea;
     }
 
-    public void setGroundArea(double groundArea) {
-        this.groundArea = groundArea;
+    public void setGroundarea(double groundarea) {
+        this.GroundArea = groundarea;
     }
 
-    public double getFloorArea() {
-        return floorArea;
+    public double getFloorarea() {
+        return FloorArea;
     }
 
-    public void setFloorArea(double floorArea) {
-        this.floorArea = floorArea;
+    public void setFloorarea(double floorarea) {
+        this.FloorArea = floorarea;
     }
 
     public List<ImageFile> getImages() {
@@ -92,7 +92,7 @@ public class HouseListingCreationDTO {
     {
         List<String> base=new ArrayList<>();
         for (ImageFile image:images) {
-            base.add(image.getBase64Data());
+            base.add(image.getBase64data());
         }
         return base;
     }

@@ -5,18 +5,13 @@ import java.util.List;
 public class HouseListing {
 
 
-    private final String street;
-    private final int postNumber;
-    private final String city;
-    private final int houseNo;
+    private Address address;
     private final int constructionYear;
     private final int lastRebuilt;
     private final boolean hasInspection;
     private final double groundArea;
     private final double floorArea;
-    private final List<String> imageBase64Data;
-    private final List<String> imageContentType;
-    private final List<String> imageFileName;
+    private List<ImageFile> images;
     private final double price;
     private final long id;
 
@@ -24,20 +19,15 @@ public class HouseListing {
 
 
 
-    public HouseListing(long id, String street, int postNumber, String city, int houseNo, int constructionYear, int lastRebuilt, boolean hasInspection, double groundArea, double floorArea, List<String> imageBase64Data, List<String> imageContentType, List<String> imageFileName, double price, String userEmail) {
+    public HouseListing(long id, Address address, int constructionYear, int lastRebuilt, boolean hasInspection, double groundArea, double floorArea, List<ImageFile> images, double price, String userEmail) {
         this.id = id;
-        this.street = street;
-        this.postNumber = postNumber;
-        this.city = city;
-        this.houseNo = houseNo;
+        this.address=address;
         this.constructionYear = constructionYear;
         this.lastRebuilt = lastRebuilt;
         this.hasInspection = hasInspection;
         this.groundArea = groundArea;
         this.floorArea = floorArea;
-        this.imageBase64Data = imageBase64Data;
-        this.imageContentType = imageContentType;
-        this.imageFileName = imageFileName;
+        this.images=images;
         this.price = price;
         this.userEmail = userEmail;
     }
@@ -50,20 +40,8 @@ public class HouseListing {
         return id;
     }
 
-    public String getStreet() {
-        return street;
-    }
-
-    public int getPostNumber() {
-        return postNumber;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public int getHouseNo() {
-        return houseNo;
+    public Address getAddress() {
+        return address;
     }
 
     public int getConstructionYear() {
@@ -86,16 +64,8 @@ public class HouseListing {
         return floorArea;
     }
 
-    public List<String> getImageBase64Data() {
-        return imageBase64Data;
-    }
-
-    public List<String> getImageContentType() {
-        return imageContentType;
-    }
-
-    public List<String> getImageFileName() {
-        return imageFileName;
+    public List<ImageFile> getImages() {
+        return images;
     }
 
     public double getPrice() {

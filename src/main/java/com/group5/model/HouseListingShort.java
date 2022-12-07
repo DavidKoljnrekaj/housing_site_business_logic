@@ -15,7 +15,8 @@ public class HouseListingShort {
     public HouseListingShort(HouseListing listing, ImageFile image) {
         this.id = listing.getId();
         this.image = image;
-        this.address = new Address(listing.getStreet(), listing.getPostNumber(), listing.getCity(), listing.getHouseNo());
+        this.address = new Address(listing.getAddress().getCity(), listing.getAddress().postnumber,
+                listing.getAddress().getStreet(), listing.getAddress().houseno);
     }
 
     public Address getAddress() {

@@ -61,7 +61,7 @@
 			<artifactId>jjwt</artifactId>
 			<version>0.9.1</version>
 		</dependency>
-	</dependencies>
+    </dependencies>
 
 	<!-- this needs to be run before implementing the gRPC -->
 	<build>

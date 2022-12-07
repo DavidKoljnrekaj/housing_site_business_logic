@@ -31,7 +31,7 @@ public class HouseListingServiceImpl implements HouseListingService {
             e.printStackTrace();
             return null;
         }
-        return new HouseListing(response.getId(), response.getStreet(), response.getPostNumber(), response.getCity(), response.getHouseNo(), response.getConstructionYear(), response.getLastRebuilt(), response.getHasInspection(), response.getGroundArea(), response.getFloorArea(), response.getImageBase64DataList(), response.getImageContentTypeList(), response.getImageFileNameList(), response.getPrice(), response.getUserEmail());
+        return new HouseListing(response.getId(),new Address(response.getStreet(), response.getPostNumber(), response.getCity(), response.getHouseNo()), response.getConstructionYear(), response.getLastRebuilt(), response.getHasInspection(), response.getGroundArea(), response.getFloorArea(), ImageFile.fromGrpc(response.getImageBase64DataList(), response.getImageContentTypeList(), response.getImageFileNameList()), response.getPrice(), response.getUserEmail());
     }
 
     @Override
@@ -68,14 +68,14 @@ public class HouseListingServiceImpl implements HouseListingService {
         HouseResponse response = null;
         try {
             response = blockingStub.createListing(CreateHouseListingRequest.newBuilder()
+                    .setConstructionYear(listing.getConstructionyear())
+                    .setLastRebuilt(listing.getLastrebuilt())
+                    .setHasInspection(listing.isHasinspection())
+                    .setGroundArea(listing.getGroundarea())
+                    .setFloorArea(listing.getFloorarea())
                     .setStreet(listing.getAddress().street)
-                    .setPostNumber(listing.getAddress().postNumber)
-                    .setCity(listing.getAddress().city).setHouseNo(listing.getAddress().houseNo)
-                    .setConstructionYear(listing.getConstructionYear())
-                    .setLastRebuilt(listing.getLastRebuilt())
-                    .setHasInspection(listing.isHasInspection())
-                    .setGroundArea(listing.getGroundArea())
-                    .setFloorArea(listing.getFloorArea())
+                    .setPostNumber(listing.getAddress().postnumber)
+                    .setCity(listing.getAddress().city).setHouseNo(listing.getAddress().houseno)
                     .addAllImageBase64Data(listing.getAllBase64())
                     .addAllImageContentType(listing.getAllContentType())
                     .addAllImageFileName(listing.getAllFileName())
@@ -88,7 +88,7 @@ public class HouseListingServiceImpl implements HouseListingService {
             e.printStackTrace();
             return null;
         }
-        return new HouseListing(response.getId(), response.getStreet(), response.getPostNumber(), response.getCity(), response.getHouseNo(), response.getConstructionYear(), response.getLastRebuilt(), response.getHasInspection(), response.getGroundArea(), response.getFloorArea(), response.getImageBase64DataList(), response.getImageContentTypeList(), response.getImageFileNameList(), response.getPrice(), response.getUserEmail());
+        return new HouseListing(response.getId(), new Address(response.getStreet(), response.getPostNumber(), response.getCity(), response.getHouseNo()), response.getConstructionYear(), response.getLastRebuilt(), response.getHasInspection(), response.getGroundArea(), response.getFloorArea(), ImageFile.fromGrpc(response.getImageBase64DataList(), response.getImageContentTypeList(), response.getImageFileNameList()), response.getPrice(), response.getUserEmail());
 
     }
 }
