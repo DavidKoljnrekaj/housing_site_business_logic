@@ -31,7 +31,9 @@ public class HouseListingServiceImpl implements HouseListingService {
             e.printStackTrace();
             return null;
         }
-        return new HouseListing(response.getId(),new Address(response.getStreet(), response.getPostNumber(), response.getCity(), response.getHouseNo()), response.getConstructionYear(), response.getLastRebuilt(), response.getHasInspection(), response.getGroundArea(), response.getFloorArea(), ImageFile.fromGrpc(response.getImageBase64DataList(), response.getImageContentTypeList(), response.getImageFileNameList()), response.getPrice(), response.getUserEmail());
+        return new HouseListing(response.getId(),new Address(response.getAddress().getStreet(), response.getAddress().getPostNumber(), response.getAddress().getCity(),
+                response.getAddress().getHouseNo()), response.getConstructionYear(), response.getLastRebuilt(), response.getHasInspection(), response.getGroundArea(),
+                response.getFloorArea(), ImageFile.fromGrpc(response.getImagesList()), response.getPrice(), response.getUserEmail(), response.getDescription());
     }
 
     @Override
@@ -55,8 +57,9 @@ public class HouseListingServiceImpl implements HouseListingService {
             while(response.hasNext()) {
                 ShortListingResponse listing = response.next();
                 listingShorts.add(new HouseListingShort(listing.getId(),
-                        new ImageFile(listing.getImageBase64Data(), listing.getImageFileName(),listing.getImageContentType()),
-                        new Address(listing.getStreet(), listing.getPostNumber(), listing.getCity(), listing.getHouseNo()),
+                        new ImageFile(listing.getImage().getImageBase64Data(), listing.getImage().getImageFileName(),listing.getImage().getImageContentType()),
+                        new Address(listing.getAddress().getStreet(), listing.getAddress().getPostNumber(), listing.getAddress().getCity(),
+                                listing.getAddress().getHouseNo()),
                         listing.getPrice()));
             }
             return listingShorts;
@@ -73,13 +76,10 @@ public class HouseListingServiceImpl implements HouseListingService {
                     .setHasInspection(listing.isHasinspection())
                     .setGroundArea(listing.getGroundarea())
                     .setFloorArea(listing.getFloorarea())
-                    .setStreet(listing.getAddress().street)
-                    .setPostNumber(listing.getAddress().postnumber)
-                    .setCity(listing.getAddress().city).setHouseNo(listing.getAddress().houseno)
-                    .addAllImageBase64Data(listing.getAllBase64())
-                    .addAllImageContentType(listing.getAllContentType())
-                    .addAllImageFileName(listing.getAllFileName())
-                    .setPrice(listing.getPrice())
+                    .setAddress(AddressMessage.newBuilder().setStreet(listing.getAddress().getStreet()).setHouseNo(listing.getAddress().houseno)
+                            .setCity(listing.getAddress().city).setPostNumber(listing.getAddress().postnumber).build())
+                            .addAllImages(listing.getAllImageFileMessages(listing.getImages()))
+                    .setPrice((double)listing.getPrice())
                     .setUserEmail("the email will be here")
                     .build());
         }
@@ -88,7 +88,8 @@ public class HouseListingServiceImpl implements HouseListingService {
             e.printStackTrace();
             return null;
         }
-        return new HouseListing(response.getId(), new Address(response.getStreet(), response.getPostNumber(), response.getCity(), response.getHouseNo()), response.getConstructionYear(), response.getLastRebuilt(), response.getHasInspection(), response.getGroundArea(), response.getFloorArea(), ImageFile.fromGrpc(response.getImageBase64DataList(), response.getImageContentTypeList(), response.getImageFileNameList()), response.getPrice(), response.getUserEmail());
-
+        return new HouseListing(response.getId(),new Address(response.getAddress().getStreet(), response.getAddress().getPostNumber(), response.getAddress().getCity(),
+                response.getAddress().getHouseNo()), response.getConstructionYear(), response.getLastRebuilt(), response.getHasInspection(), response.getGroundArea(),
+                response.getFloorArea(), ImageFile.fromGrpc(response.getImagesList()), response.getPrice(), response.getUserEmail(), response.getDescription());
     }
 }

@@ -16,11 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ShortListingResponse() {
-    imageBase64Data_ = "";
-    imageContentType_ = "";
-    imageFileName_ = "";
-    street_ = "";
-    city_ = "";
   }
 
   @java.lang.Override
@@ -59,46 +54,32 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
+            com.group5.proto.Listing.ImageFileMessage.Builder subBuilder = null;
+            if (image_ != null) {
+              subBuilder = image_.toBuilder();
+            }
+            image_ = input.readMessage(com.group5.proto.Listing.ImageFileMessage.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(image_);
+              image_ = subBuilder.buildPartial();
+            }
 
-            imageBase64Data_ = s;
             break;
           }
           case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
+            com.group5.proto.Listing.AddressMessage.Builder subBuilder = null;
+            if (address_ != null) {
+              subBuilder = address_.toBuilder();
+            }
+            address_ = input.readMessage(com.group5.proto.Listing.AddressMessage.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(address_);
+              address_ = subBuilder.buildPartial();
+            }
 
-            imageContentType_ = s;
             break;
           }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            imageFileName_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            street_ = s;
-            break;
-          }
-          case 48: {
-
-            postNumber_ = input.readInt32();
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            city_ = s;
-            break;
-          }
-          case 64: {
-
-            houseNo_ = input.readInt32();
-            break;
-          }
-          case 72: {
+          case 32: {
 
             id_ = input.readInt64();
             break;
@@ -148,222 +129,62 @@ private static final long serialVersionUID = 0L;
     return price_;
   }
 
-  public static final int IMAGEBASE64DATA_FIELD_NUMBER = 2;
-  private volatile java.lang.Object imageBase64Data_;
+  public static final int IMAGE_FIELD_NUMBER = 2;
+  private com.group5.proto.Listing.ImageFileMessage image_;
   /**
-   * <code>string imageBase64Data = 2;</code>
-   * @return The imageBase64Data.
+   * <code>.com.group5.proto.Listing.ImageFileMessage image = 2;</code>
+   * @return Whether the image field is set.
    */
   @java.lang.Override
-  public java.lang.String getImageBase64Data() {
-    java.lang.Object ref = imageBase64Data_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      imageBase64Data_ = s;
-      return s;
-    }
+  public boolean hasImage() {
+    return image_ != null;
   }
   /**
-   * <code>string imageBase64Data = 2;</code>
-   * @return The bytes for imageBase64Data.
+   * <code>.com.group5.proto.Listing.ImageFileMessage image = 2;</code>
+   * @return The image.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getImageBase64DataBytes() {
-    java.lang.Object ref = imageBase64Data_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      imageBase64Data_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public com.group5.proto.Listing.ImageFileMessage getImage() {
+    return image_ == null ? com.group5.proto.Listing.ImageFileMessage.getDefaultInstance() : image_;
+  }
+  /**
+   * <code>.com.group5.proto.Listing.ImageFileMessage image = 2;</code>
+   */
+  @java.lang.Override
+  public com.group5.proto.Listing.ImageFileMessageOrBuilder getImageOrBuilder() {
+    return getImage();
   }
 
-  public static final int IMAGECONTENTTYPE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object imageContentType_;
+  public static final int ADDRESS_FIELD_NUMBER = 3;
+  private com.group5.proto.Listing.AddressMessage address_;
   /**
-   * <code>string imageContentType = 3;</code>
-   * @return The imageContentType.
+   * <code>.com.group5.proto.Listing.AddressMessage address = 3;</code>
+   * @return Whether the address field is set.
    */
   @java.lang.Override
-  public java.lang.String getImageContentType() {
-    java.lang.Object ref = imageContentType_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      imageContentType_ = s;
-      return s;
-    }
+  public boolean hasAddress() {
+    return address_ != null;
   }
   /**
-   * <code>string imageContentType = 3;</code>
-   * @return The bytes for imageContentType.
+   * <code>.com.group5.proto.Listing.AddressMessage address = 3;</code>
+   * @return The address.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getImageContentTypeBytes() {
-    java.lang.Object ref = imageContentType_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      imageContentType_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public com.group5.proto.Listing.AddressMessage getAddress() {
+    return address_ == null ? com.group5.proto.Listing.AddressMessage.getDefaultInstance() : address_;
+  }
+  /**
+   * <code>.com.group5.proto.Listing.AddressMessage address = 3;</code>
+   */
+  @java.lang.Override
+  public com.group5.proto.Listing.AddressMessageOrBuilder getAddressOrBuilder() {
+    return getAddress();
   }
 
-  public static final int IMAGEFILENAME_FIELD_NUMBER = 4;
-  private volatile java.lang.Object imageFileName_;
-  /**
-   * <code>string imageFileName = 4;</code>
-   * @return The imageFileName.
-   */
-  @java.lang.Override
-  public java.lang.String getImageFileName() {
-    java.lang.Object ref = imageFileName_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      imageFileName_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string imageFileName = 4;</code>
-   * @return The bytes for imageFileName.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getImageFileNameBytes() {
-    java.lang.Object ref = imageFileName_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      imageFileName_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int STREET_FIELD_NUMBER = 5;
-  private volatile java.lang.Object street_;
-  /**
-   * <code>string street = 5;</code>
-   * @return The street.
-   */
-  @java.lang.Override
-  public java.lang.String getStreet() {
-    java.lang.Object ref = street_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      street_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string street = 5;</code>
-   * @return The bytes for street.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getStreetBytes() {
-    java.lang.Object ref = street_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      street_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int POSTNUMBER_FIELD_NUMBER = 6;
-  private int postNumber_;
-  /**
-   * <code>int32 postNumber = 6;</code>
-   * @return The postNumber.
-   */
-  @java.lang.Override
-  public int getPostNumber() {
-    return postNumber_;
-  }
-
-  public static final int CITY_FIELD_NUMBER = 7;
-  private volatile java.lang.Object city_;
-  /**
-   * <code>string city = 7;</code>
-   * @return The city.
-   */
-  @java.lang.Override
-  public java.lang.String getCity() {
-    java.lang.Object ref = city_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      city_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string city = 7;</code>
-   * @return The bytes for city.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getCityBytes() {
-    java.lang.Object ref = city_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      city_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int HOUSENO_FIELD_NUMBER = 8;
-  private int houseNo_;
-  /**
-   * <code>int32 houseNo = 8;</code>
-   * @return The houseNo.
-   */
-  @java.lang.Override
-  public int getHouseNo() {
-    return houseNo_;
-  }
-
-  public static final int ID_FIELD_NUMBER = 9;
+  public static final int ID_FIELD_NUMBER = 4;
   private long id_;
   /**
-   * <code>int64 id = 9;</code>
+   * <code>int64 id = 4;</code>
    * @return The id.
    */
   @java.lang.Override
@@ -388,29 +209,14 @@ private static final long serialVersionUID = 0L;
     if (price_ != 0L) {
       output.writeInt64(1, price_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageBase64Data_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, imageBase64Data_);
+    if (image_ != null) {
+      output.writeMessage(2, getImage());
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageContentType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, imageContentType_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageFileName_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, imageFileName_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(street_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, street_);
-    }
-    if (postNumber_ != 0) {
-      output.writeInt32(6, postNumber_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(city_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, city_);
-    }
-    if (houseNo_ != 0) {
-      output.writeInt32(8, houseNo_);
+    if (address_ != null) {
+      output.writeMessage(3, getAddress());
     }
     if (id_ != 0L) {
-      output.writeInt64(9, id_);
+      output.writeInt64(4, id_);
     }
     unknownFields.writeTo(output);
   }
@@ -425,32 +231,17 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(1, price_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageBase64Data_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, imageBase64Data_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageContentType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, imageContentType_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageFileName_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, imageFileName_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(street_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, street_);
-    }
-    if (postNumber_ != 0) {
+    if (image_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(6, postNumber_);
+        .computeMessageSize(2, getImage());
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(city_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, city_);
-    }
-    if (houseNo_ != 0) {
+    if (address_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(8, houseNo_);
+        .computeMessageSize(3, getAddress());
     }
     if (id_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(9, id_);
+        .computeInt64Size(4, id_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -469,20 +260,16 @@ private static final long serialVersionUID = 0L;
 
     if (getPrice()
         != other.getPrice()) return false;
-    if (!getImageBase64Data()
-        .equals(other.getImageBase64Data())) return false;
-    if (!getImageContentType()
-        .equals(other.getImageContentType())) return false;
-    if (!getImageFileName()
-        .equals(other.getImageFileName())) return false;
-    if (!getStreet()
-        .equals(other.getStreet())) return false;
-    if (getPostNumber()
-        != other.getPostNumber()) return false;
-    if (!getCity()
-        .equals(other.getCity())) return false;
-    if (getHouseNo()
-        != other.getHouseNo()) return false;
+    if (hasImage() != other.hasImage()) return false;
+    if (hasImage()) {
+      if (!getImage()
+          .equals(other.getImage())) return false;
+    }
+    if (hasAddress() != other.hasAddress()) return false;
+    if (hasAddress()) {
+      if (!getAddress()
+          .equals(other.getAddress())) return false;
+    }
     if (getId()
         != other.getId()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -499,20 +286,14 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + PRICE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getPrice());
-    hash = (37 * hash) + IMAGEBASE64DATA_FIELD_NUMBER;
-    hash = (53 * hash) + getImageBase64Data().hashCode();
-    hash = (37 * hash) + IMAGECONTENTTYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getImageContentType().hashCode();
-    hash = (37 * hash) + IMAGEFILENAME_FIELD_NUMBER;
-    hash = (53 * hash) + getImageFileName().hashCode();
-    hash = (37 * hash) + STREET_FIELD_NUMBER;
-    hash = (53 * hash) + getStreet().hashCode();
-    hash = (37 * hash) + POSTNUMBER_FIELD_NUMBER;
-    hash = (53 * hash) + getPostNumber();
-    hash = (37 * hash) + CITY_FIELD_NUMBER;
-    hash = (53 * hash) + getCity().hashCode();
-    hash = (37 * hash) + HOUSENO_FIELD_NUMBER;
-    hash = (53 * hash) + getHouseNo();
+    if (hasImage()) {
+      hash = (37 * hash) + IMAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getImage().hashCode();
+    }
+    if (hasAddress()) {
+      hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getAddress().hashCode();
+    }
     hash = (37 * hash) + ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getId());
@@ -651,20 +432,18 @@ private static final long serialVersionUID = 0L;
       super.clear();
       price_ = 0L;
 
-      imageBase64Data_ = "";
-
-      imageContentType_ = "";
-
-      imageFileName_ = "";
-
-      street_ = "";
-
-      postNumber_ = 0;
-
-      city_ = "";
-
-      houseNo_ = 0;
-
+      if (imageBuilder_ == null) {
+        image_ = null;
+      } else {
+        image_ = null;
+        imageBuilder_ = null;
+      }
+      if (addressBuilder_ == null) {
+        address_ = null;
+      } else {
+        address_ = null;
+        addressBuilder_ = null;
+      }
       id_ = 0L;
 
       return this;
@@ -694,13 +473,16 @@ private static final long serialVersionUID = 0L;
     public com.group5.proto.Listing.ShortListingResponse buildPartial() {
       com.group5.proto.Listing.ShortListingResponse result = new com.group5.proto.Listing.ShortListingResponse(this);
       result.price_ = price_;
-      result.imageBase64Data_ = imageBase64Data_;
-      result.imageContentType_ = imageContentType_;
-      result.imageFileName_ = imageFileName_;
-      result.street_ = street_;
-      result.postNumber_ = postNumber_;
-      result.city_ = city_;
-      result.houseNo_ = houseNo_;
+      if (imageBuilder_ == null) {
+        result.image_ = image_;
+      } else {
+        result.image_ = imageBuilder_.build();
+      }
+      if (addressBuilder_ == null) {
+        result.address_ = address_;
+      } else {
+        result.address_ = addressBuilder_.build();
+      }
       result.id_ = id_;
       onBuilt();
       return result;
@@ -753,31 +535,11 @@ private static final long serialVersionUID = 0L;
       if (other.getPrice() != 0L) {
         setPrice(other.getPrice());
       }
-      if (!other.getImageBase64Data().isEmpty()) {
-        imageBase64Data_ = other.imageBase64Data_;
-        onChanged();
+      if (other.hasImage()) {
+        mergeImage(other.getImage());
       }
-      if (!other.getImageContentType().isEmpty()) {
-        imageContentType_ = other.imageContentType_;
-        onChanged();
-      }
-      if (!other.getImageFileName().isEmpty()) {
-        imageFileName_ = other.imageFileName_;
-        onChanged();
-      }
-      if (!other.getStreet().isEmpty()) {
-        street_ = other.street_;
-        onChanged();
-      }
-      if (other.getPostNumber() != 0) {
-        setPostNumber(other.getPostNumber());
-      }
-      if (!other.getCity().isEmpty()) {
-        city_ = other.city_;
-        onChanged();
-      }
-      if (other.getHouseNo() != 0) {
-        setHouseNo(other.getHouseNo());
+      if (other.hasAddress()) {
+        mergeAddress(other.getAddress());
       }
       if (other.getId() != 0L) {
         setId(other.getId());
@@ -842,451 +604,247 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object imageBase64Data_ = "";
+    private com.group5.proto.Listing.ImageFileMessage image_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.group5.proto.Listing.ImageFileMessage, com.group5.proto.Listing.ImageFileMessage.Builder, com.group5.proto.Listing.ImageFileMessageOrBuilder> imageBuilder_;
     /**
-     * <code>string imageBase64Data = 2;</code>
-     * @return The imageBase64Data.
+     * <code>.com.group5.proto.Listing.ImageFileMessage image = 2;</code>
+     * @return Whether the image field is set.
      */
-    public java.lang.String getImageBase64Data() {
-      java.lang.Object ref = imageBase64Data_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        imageBase64Data_ = s;
-        return s;
+    public boolean hasImage() {
+      return imageBuilder_ != null || image_ != null;
+    }
+    /**
+     * <code>.com.group5.proto.Listing.ImageFileMessage image = 2;</code>
+     * @return The image.
+     */
+    public com.group5.proto.Listing.ImageFileMessage getImage() {
+      if (imageBuilder_ == null) {
+        return image_ == null ? com.group5.proto.Listing.ImageFileMessage.getDefaultInstance() : image_;
       } else {
-        return (java.lang.String) ref;
+        return imageBuilder_.getMessage();
       }
     }
     /**
-     * <code>string imageBase64Data = 2;</code>
-     * @return The bytes for imageBase64Data.
+     * <code>.com.group5.proto.Listing.ImageFileMessage image = 2;</code>
      */
-    public com.google.protobuf.ByteString
-        getImageBase64DataBytes() {
-      java.lang.Object ref = imageBase64Data_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        imageBase64Data_ = b;
-        return b;
+    public Builder setImage(com.group5.proto.Listing.ImageFileMessage value) {
+      if (imageBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        image_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        imageBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.group5.proto.Listing.ImageFileMessage image = 2;</code>
+     */
+    public Builder setImage(
+        com.group5.proto.Listing.ImageFileMessage.Builder builderForValue) {
+      if (imageBuilder_ == null) {
+        image_ = builderForValue.build();
+        onChanged();
+      } else {
+        imageBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.group5.proto.Listing.ImageFileMessage image = 2;</code>
+     */
+    public Builder mergeImage(com.group5.proto.Listing.ImageFileMessage value) {
+      if (imageBuilder_ == null) {
+        if (image_ != null) {
+          image_ =
+            com.group5.proto.Listing.ImageFileMessage.newBuilder(image_).mergeFrom(value).buildPartial();
+        } else {
+          image_ = value;
+        }
+        onChanged();
+      } else {
+        imageBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.group5.proto.Listing.ImageFileMessage image = 2;</code>
+     */
+    public Builder clearImage() {
+      if (imageBuilder_ == null) {
+        image_ = null;
+        onChanged();
+      } else {
+        image_ = null;
+        imageBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.group5.proto.Listing.ImageFileMessage image = 2;</code>
+     */
+    public com.group5.proto.Listing.ImageFileMessage.Builder getImageBuilder() {
+      
+      onChanged();
+      return getImageFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.com.group5.proto.Listing.ImageFileMessage image = 2;</code>
+     */
+    public com.group5.proto.Listing.ImageFileMessageOrBuilder getImageOrBuilder() {
+      if (imageBuilder_ != null) {
+        return imageBuilder_.getMessageOrBuilder();
+      } else {
+        return image_ == null ?
+            com.group5.proto.Listing.ImageFileMessage.getDefaultInstance() : image_;
       }
     }
     /**
-     * <code>string imageBase64Data = 2;</code>
-     * @param value The imageBase64Data to set.
-     * @return This builder for chaining.
+     * <code>.com.group5.proto.Listing.ImageFileMessage image = 2;</code>
      */
-    public Builder setImageBase64Data(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      imageBase64Data_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string imageBase64Data = 2;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearImageBase64Data() {
-      
-      imageBase64Data_ = getDefaultInstance().getImageBase64Data();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string imageBase64Data = 2;</code>
-     * @param value The bytes for imageBase64Data to set.
-     * @return This builder for chaining.
-     */
-    public Builder setImageBase64DataBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      imageBase64Data_ = value;
-      onChanged();
-      return this;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.group5.proto.Listing.ImageFileMessage, com.group5.proto.Listing.ImageFileMessage.Builder, com.group5.proto.Listing.ImageFileMessageOrBuilder> 
+        getImageFieldBuilder() {
+      if (imageBuilder_ == null) {
+        imageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.group5.proto.Listing.ImageFileMessage, com.group5.proto.Listing.ImageFileMessage.Builder, com.group5.proto.Listing.ImageFileMessageOrBuilder>(
+                getImage(),
+                getParentForChildren(),
+                isClean());
+        image_ = null;
+      }
+      return imageBuilder_;
     }
 
-    private java.lang.Object imageContentType_ = "";
+    private com.group5.proto.Listing.AddressMessage address_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.group5.proto.Listing.AddressMessage, com.group5.proto.Listing.AddressMessage.Builder, com.group5.proto.Listing.AddressMessageOrBuilder> addressBuilder_;
     /**
-     * <code>string imageContentType = 3;</code>
-     * @return The imageContentType.
+     * <code>.com.group5.proto.Listing.AddressMessage address = 3;</code>
+     * @return Whether the address field is set.
      */
-    public java.lang.String getImageContentType() {
-      java.lang.Object ref = imageContentType_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        imageContentType_ = s;
-        return s;
+    public boolean hasAddress() {
+      return addressBuilder_ != null || address_ != null;
+    }
+    /**
+     * <code>.com.group5.proto.Listing.AddressMessage address = 3;</code>
+     * @return The address.
+     */
+    public com.group5.proto.Listing.AddressMessage getAddress() {
+      if (addressBuilder_ == null) {
+        return address_ == null ? com.group5.proto.Listing.AddressMessage.getDefaultInstance() : address_;
       } else {
-        return (java.lang.String) ref;
+        return addressBuilder_.getMessage();
       }
     }
     /**
-     * <code>string imageContentType = 3;</code>
-     * @return The bytes for imageContentType.
+     * <code>.com.group5.proto.Listing.AddressMessage address = 3;</code>
      */
-    public com.google.protobuf.ByteString
-        getImageContentTypeBytes() {
-      java.lang.Object ref = imageContentType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        imageContentType_ = b;
-        return b;
+    public Builder setAddress(com.group5.proto.Listing.AddressMessage value) {
+      if (addressBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        address_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        addressBuilder_.setMessage(value);
       }
-    }
-    /**
-     * <code>string imageContentType = 3;</code>
-     * @param value The imageContentType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setImageContentType(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      imageContentType_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string imageContentType = 3;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearImageContentType() {
-      
-      imageContentType_ = getDefaultInstance().getImageContentType();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string imageContentType = 3;</code>
-     * @param value The bytes for imageContentType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setImageContentTypeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      imageContentType_ = value;
-      onChanged();
-      return this;
-    }
 
-    private java.lang.Object imageFileName_ = "";
+      return this;
+    }
     /**
-     * <code>string imageFileName = 4;</code>
-     * @return The imageFileName.
+     * <code>.com.group5.proto.Listing.AddressMessage address = 3;</code>
      */
-    public java.lang.String getImageFileName() {
-      java.lang.Object ref = imageFileName_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        imageFileName_ = s;
-        return s;
+    public Builder setAddress(
+        com.group5.proto.Listing.AddressMessage.Builder builderForValue) {
+      if (addressBuilder_ == null) {
+        address_ = builderForValue.build();
+        onChanged();
       } else {
-        return (java.lang.String) ref;
+        addressBuilder_.setMessage(builderForValue.build());
       }
-    }
-    /**
-     * <code>string imageFileName = 4;</code>
-     * @return The bytes for imageFileName.
-     */
-    public com.google.protobuf.ByteString
-        getImageFileNameBytes() {
-      java.lang.Object ref = imageFileName_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        imageFileName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string imageFileName = 4;</code>
-     * @param value The imageFileName to set.
-     * @return This builder for chaining.
-     */
-    public Builder setImageFileName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      imageFileName_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string imageFileName = 4;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearImageFileName() {
-      
-      imageFileName_ = getDefaultInstance().getImageFileName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string imageFileName = 4;</code>
-     * @param value The bytes for imageFileName to set.
-     * @return This builder for chaining.
-     */
-    public Builder setImageFileNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      imageFileName_ = value;
-      onChanged();
-      return this;
-    }
 
-    private java.lang.Object street_ = "";
+      return this;
+    }
     /**
-     * <code>string street = 5;</code>
-     * @return The street.
+     * <code>.com.group5.proto.Listing.AddressMessage address = 3;</code>
      */
-    public java.lang.String getStreet() {
-      java.lang.Object ref = street_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        street_ = s;
-        return s;
+    public Builder mergeAddress(com.group5.proto.Listing.AddressMessage value) {
+      if (addressBuilder_ == null) {
+        if (address_ != null) {
+          address_ =
+            com.group5.proto.Listing.AddressMessage.newBuilder(address_).mergeFrom(value).buildPartial();
+        } else {
+          address_ = value;
+        }
+        onChanged();
       } else {
-        return (java.lang.String) ref;
+        addressBuilder_.mergeFrom(value);
       }
-    }
-    /**
-     * <code>string street = 5;</code>
-     * @return The bytes for street.
-     */
-    public com.google.protobuf.ByteString
-        getStreetBytes() {
-      java.lang.Object ref = street_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        street_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string street = 5;</code>
-     * @param value The street to set.
-     * @return This builder for chaining.
-     */
-    public Builder setStreet(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      street_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string street = 5;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearStreet() {
-      
-      street_ = getDefaultInstance().getStreet();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string street = 5;</code>
-     * @param value The bytes for street to set.
-     * @return This builder for chaining.
-     */
-    public Builder setStreetBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      street_ = value;
-      onChanged();
-      return this;
-    }
 
-    private int postNumber_ ;
-    /**
-     * <code>int32 postNumber = 6;</code>
-     * @return The postNumber.
-     */
-    @java.lang.Override
-    public int getPostNumber() {
-      return postNumber_;
-    }
-    /**
-     * <code>int32 postNumber = 6;</code>
-     * @param value The postNumber to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPostNumber(int value) {
-      
-      postNumber_ = value;
-      onChanged();
       return this;
     }
     /**
-     * <code>int32 postNumber = 6;</code>
-     * @return This builder for chaining.
+     * <code>.com.group5.proto.Listing.AddressMessage address = 3;</code>
      */
-    public Builder clearPostNumber() {
-      
-      postNumber_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object city_ = "";
-    /**
-     * <code>string city = 7;</code>
-     * @return The city.
-     */
-    public java.lang.String getCity() {
-      java.lang.Object ref = city_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        city_ = s;
-        return s;
+    public Builder clearAddress() {
+      if (addressBuilder_ == null) {
+        address_ = null;
+        onChanged();
       } else {
-        return (java.lang.String) ref;
+        address_ = null;
+        addressBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.group5.proto.Listing.AddressMessage address = 3;</code>
+     */
+    public com.group5.proto.Listing.AddressMessage.Builder getAddressBuilder() {
+      
+      onChanged();
+      return getAddressFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.com.group5.proto.Listing.AddressMessage address = 3;</code>
+     */
+    public com.group5.proto.Listing.AddressMessageOrBuilder getAddressOrBuilder() {
+      if (addressBuilder_ != null) {
+        return addressBuilder_.getMessageOrBuilder();
+      } else {
+        return address_ == null ?
+            com.group5.proto.Listing.AddressMessage.getDefaultInstance() : address_;
       }
     }
     /**
-     * <code>string city = 7;</code>
-     * @return The bytes for city.
+     * <code>.com.group5.proto.Listing.AddressMessage address = 3;</code>
      */
-    public com.google.protobuf.ByteString
-        getCityBytes() {
-      java.lang.Object ref = city_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        city_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.group5.proto.Listing.AddressMessage, com.group5.proto.Listing.AddressMessage.Builder, com.group5.proto.Listing.AddressMessageOrBuilder> 
+        getAddressFieldBuilder() {
+      if (addressBuilder_ == null) {
+        addressBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.group5.proto.Listing.AddressMessage, com.group5.proto.Listing.AddressMessage.Builder, com.group5.proto.Listing.AddressMessageOrBuilder>(
+                getAddress(),
+                getParentForChildren(),
+                isClean());
+        address_ = null;
       }
-    }
-    /**
-     * <code>string city = 7;</code>
-     * @param value The city to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCity(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      city_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string city = 7;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearCity() {
-      
-      city_ = getDefaultInstance().getCity();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string city = 7;</code>
-     * @param value The bytes for city to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCityBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      city_ = value;
-      onChanged();
-      return this;
-    }
-
-    private int houseNo_ ;
-    /**
-     * <code>int32 houseNo = 8;</code>
-     * @return The houseNo.
-     */
-    @java.lang.Override
-    public int getHouseNo() {
-      return houseNo_;
-    }
-    /**
-     * <code>int32 houseNo = 8;</code>
-     * @param value The houseNo to set.
-     * @return This builder for chaining.
-     */
-    public Builder setHouseNo(int value) {
-      
-      houseNo_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int32 houseNo = 8;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearHouseNo() {
-      
-      houseNo_ = 0;
-      onChanged();
-      return this;
+      return addressBuilder_;
     }
 
     private long id_ ;
     /**
-     * <code>int64 id = 9;</code>
+     * <code>int64 id = 4;</code>
      * @return The id.
      */
     @java.lang.Override
@@ -1294,7 +852,7 @@ private static final long serialVersionUID = 0L;
       return id_;
     }
     /**
-     * <code>int64 id = 9;</code>
+     * <code>int64 id = 4;</code>
      * @param value The id to set.
      * @return This builder for chaining.
      */
@@ -1305,7 +863,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 id = 9;</code>
+     * <code>int64 id = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {

@@ -17,9 +17,10 @@ public class HouseListing {
 
     private final String userEmail;
 
+    private String description;
 
-
-    public HouseListing(long id, Address address, int constructionYear, int lastRebuilt, boolean hasInspection, double groundArea, double floorArea, List<ImageFile> images, double price, String userEmail) {
+    public HouseListing(long id, Address address, int constructionYear, int lastRebuilt, boolean hasInspection, double groundArea,
+                        double floorArea, List<ImageFile> images, double price, String userEmail,String description) {
         this.id = id;
         this.address=address;
         this.constructionYear = constructionYear;
@@ -30,6 +31,7 @@ public class HouseListing {
         this.images=images;
         this.price = price;
         this.userEmail = userEmail;
+        this.description=description;
     }
 
     public String getUserEmail() {

@@ -1,5 +1,7 @@
 package com.group5.model;
 
+import com.group5.proto.Listing.ImageFileMessage;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,11 +16,11 @@ public class ImageFile {
         this.contentType = contentType;
     }
 
-    public static List<ImageFile> fromGrpc(List<String> imageBase64DataList, List<String> imageContentTypeList, List<String> imageFileNameList) {
+    public static List<ImageFile> fromGrpc(List<ImageFileMessage> imagemessages) {
         List<ImageFile> images=new ArrayList<>();
-        for (int i=0;i<imageFileNameList.size();i++)
+        for (ImageFileMessage image:imagemessages)
         {
-            images.add(new ImageFile(imageBase64DataList.get(i),imageContentTypeList.get(i),imageFileNameList.get(i)));
+            images.add(new ImageFile(image.getImageBase64Data(), image.getImageFileName(), image.getImageContentType()));
         }
         return images;
     }

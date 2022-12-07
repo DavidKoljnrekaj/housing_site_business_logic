@@ -1,5 +1,7 @@
 package com.group5.model;
 
+import com.group5.proto.Listing.ImageFileMessage;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +15,10 @@ public class HouseListingCreationDTO {
     private List<ImageFile> images;
     private long price;
 
-    public HouseListingCreationDTO(Address address, int ConstructionYear, int LastRebuilt, boolean HasInspection, double GroundArea, double FloorArea, List<ImageFile> images, long price)
+    private String description;
+    private String email;
+    public HouseListingCreationDTO(Address address, int ConstructionYear, int LastRebuilt, boolean HasInspection, double GroundArea,
+                                   double FloorArea, List<ImageFile> images, long price, String description, String email)
     {
         this.address = address;
         this.ConstructionYear = ConstructionYear;
@@ -23,6 +28,8 @@ public class HouseListingCreationDTO {
         this.FloorArea = FloorArea;
         this.images = images;
         this.price = price;
+        this.description=description;
+        this.email=email;
     }
 
     public Address getAddress() {
@@ -88,29 +95,15 @@ public class HouseListingCreationDTO {
     public void setPrice(long price) {
         this.price = price;
     }
-    public List<String> getAllBase64()
+    public List<ImageFileMessage> getAllImageFileMessages(List<ImageFile> images)
     {
-        List<String> base=new ArrayList<>();
+        List<ImageFileMessage> base=new ArrayList<>();
         for (ImageFile image:images) {
-            base.add(image.getBase64data());
+            base.add(ImageFileMessage.newBuilder().setImageFileName(image.fileName).setImageContentType(image.contentType)
+                    .setImageBase64Data(image.base64data).build());
         }
         return base;
     }
-    public List<String> getAllFileName()
-    {
-        List<String> file=new ArrayList<>();
-        for (ImageFile image:images) {
-            file.add(image.getFileName());
-        }
-        return file;
-    }
-    public List<String> getAllContentType()
-    {
-        List<String> content=new ArrayList<>();
-        for (ImageFile image:images) {
-            content.add(image.getContentType());
-        }
-        return content;
-    }
+
 
 }
