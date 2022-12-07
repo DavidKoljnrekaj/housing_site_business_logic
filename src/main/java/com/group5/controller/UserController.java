@@ -2,6 +2,7 @@ package com.group5.controller;
 
 import com.group5.model.User;
 import com.group5.model.UserDTO;
+import com.group5.security.JwtTokenUtil;
 import com.group5.service.implementations.UserServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -15,10 +16,14 @@ import java.util.Optional;
 public class UserController {
 
     UserServiceImpl userService;
+    private final JwtTokenUtil jwtTokenUtil;
 
-    public UserController(UserServiceImpl userService)
+
+
+    public UserController(UserServiceImpl userService, JwtTokenUtil jwtTokenUtil)
     {
         this.userService=userService;
+        this.jwtTokenUtil = jwtTokenUtil;
     }
 
     @GetMapping(value="/user/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -37,12 +42,15 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public User login(@RequestParam(value = "email") String email,
-                         @RequestParam(value = "password") String password){
+    public String login(@RequestParam(value="email") String email, @RequestParam(value="password") String password){
+
         if(userService.Login(email, password)){
-            return userService.getUserById(email);
+            // Generating JWT Token
+            User user = userService.getUserById(email);
+            String JWT = jwtTokenUtil.generateToken(user);
+            return JWT;
         }else{
-            return null;
+            return "Wrong Email or Password";
         }
     }
 }
