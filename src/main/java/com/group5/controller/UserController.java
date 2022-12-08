@@ -4,6 +4,7 @@ import com.group5.model.User;
 import com.group5.model.UserDTO;
 import com.group5.security.JwtTokenUtil;
 import com.group5.service.implementations.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import java.util.Optional;
 public class UserController {
 
     UserServiceImpl userService;
+    @Autowired
     private final JwtTokenUtil jwtTokenUtil;
 
 

@@ -4,7 +4,6 @@ import com.group5.model.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
@@ -69,44 +68,5 @@ public class JwtTokenUtil implements Serializable {
         final String username = getUsernameFromToken(token);
         return (username.equals(userDetails.getEmail()) && !isTokenExpired(token));
     }
-
-    private static final String JWT_SECRET = "secret";
-    @Value("${group5.app.jwtExpirationMs}")
-    private long jwtExpirationMs;
-    @Value("${group5.app.jwtCookieName}")
-    private String jwtCookie;
-/*
-    @SuppressWarnings("deprecation")
-    public String generateToken(User user){
-
-        return Jwts.builder()
-                .setSubject(user.getName())
-                .setExpiration(new Date(System.currentTimeMillis() + (1000 * 60 * 60 * 24)))
-                .setIssuer(user.getEmail())
-                .signWith(SignatureAlgorithm.HS256, "MTIzNDU2Nzg=")
-                .compact();
-    }
-
-    public boolean validateToken(String token) {
-        try {
-            Jwts.parser().setSigningKey("MTIzNDU2Nzg=").parseClaimsJws(token);
-            return true;
-        } catch (SignatureException e) {
-            System.out.println("Invalid JWT signature");
-        } catch (MalformedJwtException e) {
-            System.out.println("Invalid JWT token");
-        } catch (ExpiredJwtException e) {
-            System.out.println("Expired JWT token");
-        } catch (UnsupportedJwtException e) {
-            System.out.println("Unsupported JWT token");
-        } catch (IllegalArgumentException e) {
-            System.out.println("JWT claims string is empty");
-        }
-        return false;
-    }
-    public String getRoleFromToken(String token) {
-        return (String) Jwts.parser().setSigningKey("MTIzNDU2Nzg=").parseClaimsJws(token).getBody().get("role");
-    }
-*/
 
 }

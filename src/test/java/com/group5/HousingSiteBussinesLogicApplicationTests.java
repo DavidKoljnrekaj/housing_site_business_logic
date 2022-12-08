@@ -1,13 +1,24 @@
 package com.group5;
 
 
-import com.group5.model.User;
-import com.group5.security.JwtTokenUtil;
+import com.group5.model.*;
+import com.group5.service.implementations.HouseListingServiceImpl;
+import com.group5.service.implementations.UserServiceImpl;
+import com.group5.service.services.HouseListingService;
+import com.group5.service.services.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 @SpringBootTest
 class HousingSiteBussinesLogicApplicationTests {
+
+    private HouseListingService listingService = new HouseListingServiceImpl();
+    private UserService userService = new UserServiceImpl();
+
 	/*
 
 	@Test
@@ -35,20 +46,62 @@ class HousingSiteBussinesLogicApplicationTests {
 	 */
 
     @Test
-    void stringToByte(){
-        JwtTokenUtil jwtTokenUtil = new JwtTokenUtil();
+    void createListing1(){
+        Address address = new Address("Street", 9000, "Aalborg", 69);
+        ImageFile imageFile = new ImageFile("dfgadfg", "adfsdf", "dsafads");
+        List<ImageFile> files = new ArrayList();
+        files.add(imageFile);
+        HouseListingCreationDTO house = new HouseListingCreationDTO(address, 1980, 1990, false, 120, 120,
+                files, 450000, "", "");
+        listingService.addListing(house);
+    }
 
-        User user = new User("kasdhja ksd", "", "");
+    @Test
+    void showListings(){
+        ArrayList<HouseListingShort> listings = listingService.getHouseListings(Optional.of(Integer.MAX_VALUE), Optional.of(Integer.MAX_VALUE), Optional.of(Integer.MAX_VALUE));
+        System.out.println(listings);
+    }
 
-        String token = jwtTokenUtil.generateToken(user);
+    @Test
+    void showListingsByCriteria(){
 
-        boolean validated = jwtTokenUtil.validateToken(token, user);
+    }
 
-        String email = jwtTokenUtil.getUsernameFromToken(token);
+    @Test
+    void showDetailedListing(){
+
+    }
+
+    @Test
+    void createAnAccount(){
+        UserDTO user = new UserDTO("asd", "name", "surname", "ifhjas df ");
+        Optional<User> user1 = userService.registerUser(user);
+        System.out.println(user1);
+    }
+
+    @Test
+    void createAnAccount1(){
+
+    }
 
 
-        System.out.println(token);
-        System.out.println(validated);
-        System.out.println(email);
+    @Test
+    void updateListing(){
+
+    }
+
+    @Test
+    void updateListing1(){
+
+    }
+
+    @Test
+    void updateListing2(){
+
+    }
+
+    @Test
+    void sellerSeeListings(){
+
     }
 }

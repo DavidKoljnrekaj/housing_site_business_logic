@@ -50,4 +50,12 @@ public class UserServiceImpl implements UserService {
 
         return response.getIsValid();
     }
+
+    @Override
+    public Optional<User> registerUser(UserDTO user) {
+        UserResponse response = blockingStub.registerUser(RegistrationInfo.newBuilder()
+                .setEmail(user.getEmail()).setName(user.getName()).setSurname(user.getSurname()).setPassword(user.getPassword()).build());
+        User user1 = new User(response.getEmail(), response.getName(), response.getSurname());
+        return Optional.of(user1);
+    }
 }

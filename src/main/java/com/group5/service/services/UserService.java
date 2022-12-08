@@ -12,4 +12,5 @@ public interface UserService {
     User getUserById(String email);
     Optional<User> createUser(UserDTO user);
     boolean Login(String email, String password);
+    Optional<User> registerUser(UserDTO user);
 }
