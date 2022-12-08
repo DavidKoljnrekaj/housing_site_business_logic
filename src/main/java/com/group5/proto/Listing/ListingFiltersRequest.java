@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ListingFiltersRequest() {
+    city_ = "";
   }
 
   @java.lang.Override
@@ -49,9 +50,10 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 8: {
+          case 10: {
+            java.lang.String s = input.readStringRequireUtf8();
             bitField0_ |= 0x00000001;
-            postNumber_ = input.readInt64();
+            city_ = s;
             break;
           }
           case 16: {
@@ -99,23 +101,50 @@ private static final long serialVersionUID = 0L;
   }
 
   private int bitField0_;
-  public static final int POSTNUMBER_FIELD_NUMBER = 1;
-  private long postNumber_;
+  public static final int CITY_FIELD_NUMBER = 1;
+  private volatile java.lang.Object city_;
   /**
-   * <code>optional int64 postNumber = 1;</code>
-   * @return Whether the postNumber field is set.
+   * <code>optional string city = 1;</code>
+   * @return Whether the city field is set.
    */
   @java.lang.Override
-  public boolean hasPostNumber() {
+  public boolean hasCity() {
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>optional int64 postNumber = 1;</code>
-   * @return The postNumber.
+   * <code>optional string city = 1;</code>
+   * @return The city.
    */
   @java.lang.Override
-  public long getPostNumber() {
-    return postNumber_;
+  public java.lang.String getCity() {
+    java.lang.Object ref = city_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      city_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>optional string city = 1;</code>
+   * @return The bytes for city.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getCityBytes() {
+    java.lang.Object ref = city_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      city_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   public static final int MAXPRICE_FIELD_NUMBER = 2;
@@ -171,7 +200,7 @@ private static final long serialVersionUID = 0L;
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (((bitField0_ & 0x00000001) != 0)) {
-      output.writeInt64(1, postNumber_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, city_);
     }
     if (((bitField0_ & 0x00000002) != 0)) {
       output.writeInt64(2, maxPrice_);
@@ -189,8 +218,7 @@ private static final long serialVersionUID = 0L;
 
     size = 0;
     if (((bitField0_ & 0x00000001) != 0)) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, postNumber_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, city_);
     }
     if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.CodedOutputStream
@@ -215,10 +243,10 @@ private static final long serialVersionUID = 0L;
     }
     com.group5.proto.Listing.ListingFiltersRequest other = (com.group5.proto.Listing.ListingFiltersRequest) obj;
 
-    if (hasPostNumber() != other.hasPostNumber()) return false;
-    if (hasPostNumber()) {
-      if (getPostNumber()
-          != other.getPostNumber()) return false;
+    if (hasCity() != other.hasCity()) return false;
+    if (hasCity()) {
+      if (!getCity()
+          .equals(other.getCity())) return false;
     }
     if (hasMaxPrice() != other.hasMaxPrice()) return false;
     if (hasMaxPrice()) {
@@ -241,10 +269,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (hasPostNumber()) {
-      hash = (37 * hash) + POSTNUMBER_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getPostNumber());
+    if (hasCity()) {
+      hash = (37 * hash) + CITY_FIELD_NUMBER;
+      hash = (53 * hash) + getCity().hashCode();
     }
     if (hasMaxPrice()) {
       hash = (37 * hash) + MAXPRICE_FIELD_NUMBER;
@@ -389,7 +416,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      postNumber_ = 0L;
+      city_ = "";
       bitField0_ = (bitField0_ & ~0x00000001);
       maxPrice_ = 0L;
       bitField0_ = (bitField0_ & ~0x00000002);
@@ -424,9 +451,9 @@ private static final long serialVersionUID = 0L;
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.postNumber_ = postNumber_;
         to_bitField0_ |= 0x00000001;
       }
+      result.city_ = city_;
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.maxPrice_ = maxPrice_;
         to_bitField0_ |= 0x00000002;
@@ -484,8 +511,10 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.group5.proto.Listing.ListingFiltersRequest other) {
       if (other == com.group5.proto.Listing.ListingFiltersRequest.getDefaultInstance()) return this;
-      if (other.hasPostNumber()) {
-        setPostNumber(other.getPostNumber());
+      if (other.hasCity()) {
+        bitField0_ |= 0x00000001;
+        city_ = other.city_;
+        onChanged();
       }
       if (other.hasMaxPrice()) {
         setMaxPrice(other.getMaxPrice());
@@ -523,41 +552,85 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private long postNumber_ ;
+    private java.lang.Object city_ = "";
     /**
-     * <code>optional int64 postNumber = 1;</code>
-     * @return Whether the postNumber field is set.
+     * <code>optional string city = 1;</code>
+     * @return Whether the city field is set.
      */
-    @java.lang.Override
-    public boolean hasPostNumber() {
+    public boolean hasCity() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>optional int64 postNumber = 1;</code>
-     * @return The postNumber.
+     * <code>optional string city = 1;</code>
+     * @return The city.
      */
-    @java.lang.Override
-    public long getPostNumber() {
-      return postNumber_;
+    public java.lang.String getCity() {
+      java.lang.Object ref = city_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        city_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>optional int64 postNumber = 1;</code>
-     * @param value The postNumber to set.
+     * <code>optional string city = 1;</code>
+     * @return The bytes for city.
+     */
+    public com.google.protobuf.ByteString
+        getCityBytes() {
+      java.lang.Object ref = city_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        city_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>optional string city = 1;</code>
+     * @param value The city to set.
      * @return This builder for chaining.
      */
-    public Builder setPostNumber(long value) {
-      bitField0_ |= 0x00000001;
-      postNumber_ = value;
+    public Builder setCity(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+      city_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional int64 postNumber = 1;</code>
+     * <code>optional string city = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearPostNumber() {
+    public Builder clearCity() {
       bitField0_ = (bitField0_ & ~0x00000001);
-      postNumber_ = 0L;
+      city_ = getDefaultInstance().getCity();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string city = 1;</code>
+     * @param value The bytes for city to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCityBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      bitField0_ |= 0x00000001;
+      city_ = value;
       onChanged();
       return this;
     }

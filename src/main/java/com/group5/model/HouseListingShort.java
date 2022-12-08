@@ -4,7 +4,7 @@ public class HouseListingShort {
     private Long id;
     private ImageFile image;
     private Address address;
-    private long price;
+    private Long price;
 
     public HouseListingShort(Long id, ImageFile image, Address address, long price) {
         this.id = id;
@@ -17,6 +17,7 @@ public class HouseListingShort {
         this.image = image;
         this.address = new Address(listing.getAddress().getCity(), listing.getAddress().postnumber,
                 listing.getAddress().getStreet(), listing.getAddress().houseno);
+        this.price=(long)listing.getPrice();
     }
 
     public Address getAddress() {
@@ -43,4 +44,11 @@ public class HouseListingShort {
         this.image = image;
     }
 
+    public Long getPrice() {
+        return price;
+    }
+
+    public void setPrice(Long price) {
+        this.price = price;
+    }
 }

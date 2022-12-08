@@ -37,17 +37,19 @@ public class HouseListingServiceImpl implements HouseListingService {
     }
 
     @Override
-    public ArrayList<HouseListingShort> getHouseListings(Optional<Integer> maxPrice, Optional<Integer> minArea, Optional<Integer> postNumber) {
+    public ArrayList<HouseListingShort> getHouseListings(Optional<String> maxPrice, Optional<String> minArea, Optional<String> city) {
         ListingFiltersRequest.Builder builder=ListingFiltersRequest.newBuilder();
         ArrayList<HouseListingShort> listingShorts=new ArrayList<>();
         {
             if(maxPrice.isPresent())
             {
-                builder.setMaxPrice(maxPrice.get().longValue());
-            } else if (minArea.isPresent()) {
-                builder.setMinArea(minArea.get().longValue());
-            } else if (postNumber.isPresent()) {
-                builder.setPostNumber(postNumber.get().longValue());
+                builder.setMaxPrice(Long.parseLong(maxPrice.get()));
+            }
+            if (minArea.isPresent()) {
+                builder.setMinArea(Long.parseLong(minArea.get()));
+            }
+            if (city.isPresent()) {
+                builder.setCity(city.get());
             }
             ListingFiltersRequest request=builder.build();
 
@@ -59,8 +61,7 @@ public class HouseListingServiceImpl implements HouseListingService {
                 listingShorts.add(new HouseListingShort(listing.getId(),
                         new ImageFile(listing.getImage().getImageBase64Data(), listing.getImage().getImageFileName(),listing.getImage().getImageContentType()),
                         new Address(listing.getAddress().getStreet(), listing.getAddress().getPostNumber(), listing.getAddress().getCity(),
-                                listing.getAddress().getHouseNo()),
-                        listing.getPrice()));
+                                listing.getAddress().getHouseNo()), listing.getPrice()));
             }
             return listingShorts;
         }
@@ -80,7 +81,8 @@ public class HouseListingServiceImpl implements HouseListingService {
                             .setCity(listing.getAddress().city).setPostNumber(listing.getAddress().postnumber).build())
                             .addAllImages(listing.getAllImageFileMessages(listing.getImages()))
                     .setPrice((double)listing.getPrice())
-                    .setUserEmail("the email will be here")
+                    .setUserEmail(listing.getEmail())
+                            .setDescription(listing.getDescription())
                     .build());
         }
         catch (StatusRuntimeException e){

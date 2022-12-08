@@ -11,6 +11,6 @@ import java.util.Optional;
 @Service
 public interface HouseListingService {
     HouseListing getHouseListingById(long id);
-    ArrayList<HouseListingShort> getHouseListings(Optional<Integer> maxPrice, Optional<Integer> minArea, Optional<Integer> postNumber);
+    ArrayList<HouseListingShort> getHouseListings(Optional<String> maxPrice, Optional<String> minArea, Optional<String> postNumber);
     HouseListing addListing(HouseListingCreationDTO listing);
 }

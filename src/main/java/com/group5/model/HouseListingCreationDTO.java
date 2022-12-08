@@ -92,6 +92,14 @@ public class HouseListingCreationDTO {
         return price;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
     public void setPrice(long price) {
         this.price = price;
     }

@@ -15,10 +15,10 @@ import java.util.Optional;
 
 @SpringBootTest
 class HousingSiteBussinesLogicApplicationTests {
-
+/*
     private HouseListingService listingService = new HouseListingServiceImpl();
     private UserService userService = new UserServiceImpl();
-
+*/
 	/*
 
 	@Test
@@ -44,7 +44,7 @@ class HousingSiteBussinesLogicApplicationTests {
 	}
 
 	 */
-
+/*
     @Test
     void createListing1(){
         Address address = new Address("Street", 9000, "Aalborg", 69);
@@ -55,13 +55,13 @@ class HousingSiteBussinesLogicApplicationTests {
                 files, 450000, "", "");
         listingService.addListing(house);
     }
-
+/*
     @Test
     void showListings(){
         ArrayList<HouseListingShort> listings = listingService.getHouseListings(Optional.of(Integer.MAX_VALUE), Optional.of(Integer.MAX_VALUE), Optional.of(Integer.MAX_VALUE));
         System.out.println(listings);
-    }
-
+    }*/
+/*
     @Test
     void showListingsByCriteria(){
 
@@ -103,5 +103,5 @@ class HousingSiteBussinesLogicApplicationTests {
     @Test
     void sellerSeeListings(){
 
-    }
+    }*/
 }

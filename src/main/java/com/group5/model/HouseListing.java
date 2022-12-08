@@ -17,7 +17,7 @@ public class HouseListing {
 
     private final String userEmail;
 
-    private String description;
+    private final String description;
 
     public HouseListing(long id, Address address, int constructionYear, int lastRebuilt, boolean hasInspection, double groundArea,
                         double floorArea, List<ImageFile> images, double price, String userEmail,String description) {
@@ -74,5 +74,7 @@ public class HouseListing {
         return price;
     }
 
-
+    public String getDescription() {
+        return description;
+    }
 }

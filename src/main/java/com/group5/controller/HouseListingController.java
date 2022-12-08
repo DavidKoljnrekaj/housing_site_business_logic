@@ -25,10 +25,10 @@ public class HouseListingController {
     }
 
     @GetMapping("/houselisting")
-    public ArrayList<HouseListingShort> getHousingListings(@RequestParam("maxPrice") Optional<Integer> maxPrice,
-                                                           @RequestParam("minArea")Optional<Integer> minArea,
-                                                           @RequestParam("postNumber")Optional<Integer> postNumber){
-        return houseListingService.getHouseListings(maxPrice,minArea,postNumber);
+    public ArrayList<HouseListingShort> getHousingListings(@RequestParam("maxPrice") Optional<String> maxPrice,
+                                                           @RequestParam("minArea")Optional<String> minArea,
+                                                           @RequestParam("city")Optional<String> city){
+        return houseListingService.getHouseListings(maxPrice,minArea,city);
     }
     
     @PostMapping(value= "/houselisting" , consumes = "application/json;charset=UTF-8" )
