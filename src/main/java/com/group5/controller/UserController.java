@@ -2,6 +2,7 @@ package com.group5.controller;
 
 import com.group5.model.User;
 import com.group5.model.UserDTO;
+import com.group5.model.UserLoginDTO;
 import com.group5.security.JwtTokenUtil;
 import com.group5.service.implementations.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,14 +45,15 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam(value="email") String email, @RequestParam(value="password") String password){
+    public String login(@RequestBody UserLoginDTO userDto){
 
-        if(userService.Login(email, password)){
+        if(userService.Login(userDto.email, userDto.password)){
             // Generating JWT Token
-            User user = userService.getUserById(email);
+            User user = userService.getUserById(userDto.email);
             String JWT = jwtTokenUtil.generateToken(user);
             return JWT;
         }else{
+            System.out.println("wrong");
             return "Wrong Email or Password";
         }
     }

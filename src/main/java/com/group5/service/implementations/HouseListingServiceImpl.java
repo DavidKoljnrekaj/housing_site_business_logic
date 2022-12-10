@@ -94,4 +94,10 @@ public class HouseListingServiceImpl implements HouseListingService {
                 response.getAddress().getHouseNo()), response.getConstructionYear(), response.getLastRebuilt(), response.getHasInspection(), response.getGroundArea(),
                 response.getFloorArea(), ImageFile.fromGrpc(response.getImagesList()), response.getPrice(), response.getUserEmail(), response.getDescription());
     }
+
+    @Override
+    public void updateListing(HouseListing listing, long id)
+    {
+
+    }
 }

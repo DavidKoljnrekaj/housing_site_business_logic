@@ -36,4 +36,10 @@ public class HouseListingController {
     {
         return houseListingService.addListing(dto);
     }
+
+    @PutMapping(value= "/houselisting/{id}" , consumes = "application/json;charset=UTF-8" )
+    public void updateListing(@RequestBody HouseListing listing, @PathVariable long id)
+    {
+        houseListingService.updateListing(listing,id);
+    }
 }
