@@ -56,14 +56,7 @@ public class HouseListingServiceImpl implements HouseListingService {
             Iterator<ShortListingResponse> response;
 
             response = blockingStub.getFilteredListings(request);
-            while(response.hasNext()) {
-                ShortListingResponse listing = response.next();
-                listingShorts.add(new HouseListingShort(listing.getId(),
-                        new ImageFile(listing.getImage().getImageBase64Data(), listing.getImage().getImageFileName(),listing.getImage().getImageContentType()),
-                        new Address(listing.getAddress().getStreet(), listing.getAddress().getPostNumber(), listing.getAddress().getCity(),
-                                listing.getAddress().getHouseNo()), listing.getPrice()));
-            }
-            return listingShorts;
+            return getHouseListingShorts(listingShorts, response);
         }
     }
 
@@ -100,4 +93,28 @@ public class HouseListingServiceImpl implements HouseListingService {
     {
 
     }
+@Override
+    public ArrayList<HouseListingShort> getHouseListingsByEmail(String email) {
+
+        ArrayList<HouseListingShort> listingShorts=new ArrayList<>();
+
+            EmailRequest request= EmailRequest.newBuilder().setEmail(email).build();
+
+            Iterator<ShortListingResponse> response;
+
+            response = blockingStub.getListingsByEmail(request);
+    return getHouseListingShorts(listingShorts, response);
 }
+
+    private ArrayList<HouseListingShort> getHouseListingShorts(ArrayList<HouseListingShort> listingShorts, Iterator<ShortListingResponse> response) {
+        while(response.hasNext()) {
+            ShortListingResponse listing = response.next();
+            listingShorts.add(new HouseListingShort(listing.getId(),
+                    new ImageFile(listing.getImage().getImageBase64Data(), listing.getImage().getImageFileName(),listing.getImage().getImageContentType()),
+                    new Address(listing.getAddress().getStreet(), listing.getAddress().getPostNumber(), listing.getAddress().getCity(),
+                            listing.getAddress().getHouseNo()), listing.getPrice()));
+        }
+        return listingShorts;
+    }
+}
+

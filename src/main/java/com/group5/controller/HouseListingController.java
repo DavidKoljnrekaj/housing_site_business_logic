@@ -30,6 +30,10 @@ public class HouseListingController {
                                                            @RequestParam("city")Optional<String> city){
         return houseListingService.getHouseListings(maxPrice,minArea,city);
     }
+    @GetMapping("/mylistings")
+    public ArrayList<HouseListingShort> getHousingListingsByEmail(@RequestParam("email") String email){
+        return houseListingService.getHouseListingsByEmail(email);
+    }
     
     @PostMapping(value= "/houselisting" , consumes = "application/json;charset=UTF-8" )
     public HouseListing addHousingListing(@RequestBody HouseListingCreationDTO dto)
