@@ -55,4 +55,10 @@ public class UserController {
             return "Wrong Email or Password";
         }
     }
+
+    @GetMapping(value="email/{JWT}")
+    public String getEmail(@PathVariable("JWT") String JWT){
+        String email = jwtTokenUtil.getUsernameFromToken(JWT);
+        return email;
+    }
 }
