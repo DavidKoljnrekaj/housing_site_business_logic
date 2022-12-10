@@ -1,7 +1,6 @@
 package com.group5;
 
 
-import com.group5.model.User;
 import com.group5.security.JwtTokenUtil;
 import com.group5.service.implementations.HouseListingServiceImpl;
 import com.group5.service.implementations.UserServiceImpl;
@@ -106,7 +105,6 @@ class HousingSiteBusinessLogicApplicationTests {
  */
     @Test
     void generateJWT(){
-        User user = new User("MyEmail", "Name", "Surname");
-        System.out.println(jwtTokenUtil.generateToken(user));
+        System.out.println(jwtTokenUtil.generateToken("MyEmail"));
     }
 }

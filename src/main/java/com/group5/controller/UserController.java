@@ -48,8 +48,7 @@ public class UserController {
 
         if(userService.Login(email, password)){
             // Generating JWT Token
-            User user = userService.getUserById(email);
-            String JWT = jwtTokenUtil.generateToken(user);
+            String JWT = jwtTokenUtil.generateToken(email);
             return JWT;
         }else{
             return "Wrong Email or Password";
