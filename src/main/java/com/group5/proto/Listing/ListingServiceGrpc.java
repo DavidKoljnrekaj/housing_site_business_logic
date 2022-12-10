@@ -107,6 +107,37 @@ public final class ListingServiceGrpc {
     return getGetFilteredListingsMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.group5.proto.Listing.HouseResponse,
+      com.group5.proto.Listing.IsOk> getUpdateListingMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "updateListing",
+      requestType = com.group5.proto.Listing.HouseResponse.class,
+      responseType = com.group5.proto.Listing.IsOk.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.group5.proto.Listing.HouseResponse,
+      com.group5.proto.Listing.IsOk> getUpdateListingMethod() {
+    io.grpc.MethodDescriptor<com.group5.proto.Listing.HouseResponse, com.group5.proto.Listing.IsOk> getUpdateListingMethod;
+    if ((getUpdateListingMethod = ListingServiceGrpc.getUpdateListingMethod) == null) {
+      synchronized (ListingServiceGrpc.class) {
+        if ((getUpdateListingMethod = ListingServiceGrpc.getUpdateListingMethod) == null) {
+          ListingServiceGrpc.getUpdateListingMethod = getUpdateListingMethod =
+              io.grpc.MethodDescriptor.<com.group5.proto.Listing.HouseResponse, com.group5.proto.Listing.IsOk>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "updateListing"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.group5.proto.Listing.HouseResponse.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.group5.proto.Listing.IsOk.getDefaultInstance()))
+              .setSchemaDescriptor(new ListingServiceMethodDescriptorSupplier("updateListing"))
+              .build();
+        }
+      }
+    }
+    return getUpdateListingMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -176,6 +207,13 @@ public final class ListingServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetFilteredListingsMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void updateListing(com.group5.proto.Listing.HouseResponse request,
+        io.grpc.stub.StreamObserver<com.group5.proto.Listing.IsOk> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateListingMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -199,6 +237,13 @@ public final class ListingServiceGrpc {
                 com.group5.proto.Listing.ListingFiltersRequest,
                 com.group5.proto.Listing.ShortListingResponse>(
                   this, METHODID_GET_FILTERED_LISTINGS)))
+          .addMethod(
+            getUpdateListingMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.group5.proto.Listing.HouseResponse,
+                com.group5.proto.Listing.IsOk>(
+                  this, METHODID_UPDATE_LISTING)))
           .build();
     }
   }
@@ -240,6 +285,14 @@ public final class ListingServiceGrpc {
       io.grpc.stub.ClientCalls.asyncServerStreamingCall(
           getChannel().newCall(getGetFilteredListingsMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void updateListing(com.group5.proto.Listing.HouseResponse request,
+        io.grpc.stub.StreamObserver<com.group5.proto.Listing.IsOk> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getUpdateListingMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -277,6 +330,13 @@ public final class ListingServiceGrpc {
       return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
           getChannel(), getGetFilteredListingsMethod(), getCallOptions(), request);
     }
+
+    /**
+     */
+    public com.group5.proto.Listing.IsOk updateListing(com.group5.proto.Listing.HouseResponse request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getUpdateListingMethod(), getCallOptions(), request);
+    }
   }
 
   /**
@@ -308,11 +368,20 @@ public final class ListingServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetListingByIdMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.group5.proto.Listing.IsOk> updateListing(
+        com.group5.proto.Listing.HouseResponse request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getUpdateListingMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_LISTING = 0;
   private static final int METHODID_GET_LISTING_BY_ID = 1;
   private static final int METHODID_GET_FILTERED_LISTINGS = 2;
+  private static final int METHODID_UPDATE_LISTING = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -342,6 +411,10 @@ public final class ListingServiceGrpc {
         case METHODID_GET_FILTERED_LISTINGS:
           serviceImpl.getFilteredListings((com.group5.proto.Listing.ListingFiltersRequest) request,
               (io.grpc.stub.StreamObserver<com.group5.proto.Listing.ShortListingResponse>) responseObserver);
+          break;
+        case METHODID_UPDATE_LISTING:
+          serviceImpl.updateListing((com.group5.proto.Listing.HouseResponse) request,
+              (io.grpc.stub.StreamObserver<com.group5.proto.Listing.IsOk>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -407,6 +480,7 @@ public final class ListingServiceGrpc {
               .addMethod(getCreateListingMethod())
               .addMethod(getGetListingByIdMethod())
               .addMethod(getGetFilteredListingsMethod())
+              .addMethod(getUpdateListingMethod())
               .build();
         }
       }

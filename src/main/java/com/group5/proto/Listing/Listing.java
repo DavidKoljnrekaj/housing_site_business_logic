@@ -49,6 +49,11 @@ public final class Listing {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_group5_proto_Listing_ImageFileMessage_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_group5_proto_Listing_IsOk_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_group5_proto_Listing_IsOk_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -87,16 +92,19 @@ public final class Listing {
       "\t\022\022\n\npostNumber\030\002 \001(\005\022\014\n\004city\030\003 \001(\t\022\017\n\007h" +
       "ouseNo\030\004 \001(\005\"\\\n\020ImageFileMessage\022\027\n\017imag" +
       "eBase64Data\030\001 \001(\t\022\030\n\020imageContentType\030\002 " +
-      "\001(\t\022\025\n\rimageFileName\030\003 \001(\t2\331\002\n\016ListingSe" +
-      "rvice\022m\n\rcreateListing\0223.com.group5.prot" +
-      "o.Listing.CreateHouseListingRequest\032\'.co" +
-      "m.group5.proto.Listing.HouseResponse\022^\n\016" +
-      "getListingById\022#.com.group5.proto.Listin" +
-      "g.IdRequest\032\'.com.group5.proto.Listing.H" +
-      "ouseResponse\022x\n\023getFilteredListings\022/.co" +
-      "m.group5.proto.Listing.ListingFiltersReq" +
-      "uest\032..com.group5.proto.Listing.ShortLis" +
-      "tingResponse0\001B\002P\001b\006proto3"
+      "\001(\t\022\025\n\rimageFileName\030\003 \001(\t\"\024\n\004IsOk\022\014\n\004is" +
+      "Ok\030\001 \001(\0102\263\003\n\016ListingService\022m\n\rcreateLis" +
+      "ting\0223.com.group5.proto.Listing.CreateHo" +
+      "useListingRequest\032\'.com.group5.proto.Lis" +
+      "ting.HouseResponse\022^\n\016getListingById\022#.c" +
+      "om.group5.proto.Listing.IdRequest\032\'.com." +
+      "group5.proto.Listing.HouseResponse\022x\n\023ge" +
+      "tFilteredListings\022/.com.group5.proto.Lis" +
+      "ting.ListingFiltersRequest\032..com.group5." +
+      "proto.Listing.ShortListingResponse0\001\022X\n\r" +
+      "updateListing\022\'.com.group5.proto.Listing" +
+      ".HouseResponse\032\036.com.group5.proto.Listin" +
+      "g.IsOkB\002P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -144,6 +152,12 @@ public final class Listing {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_group5_proto_Listing_ImageFileMessage_descriptor,
         new java.lang.String[] { "ImageBase64Data", "ImageContentType", "ImageFileName", });
+    internal_static_com_group5_proto_Listing_IsOk_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_com_group5_proto_Listing_IsOk_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_group5_proto_Listing_IsOk_descriptor,
+        new java.lang.String[] { "IsOk", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

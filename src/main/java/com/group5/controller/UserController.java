@@ -41,7 +41,7 @@ public class UserController {
 
     @PostMapping("/createUser")
     public Optional<User> createUser(@RequestBody UserDTO user){
-        return userService.createUser(user);
+        return userService.registerUser(user);
     }
 
     @PostMapping("/login")
@@ -50,7 +50,7 @@ public class UserController {
         if(userService.Login(userDto.email, userDto.password)){
             // Generating JWT Token
             User user = userService.getUserById(userDto.email);
-            String JWT = jwtTokenUtil.generateToken(user);
+            String JWT = jwtTokenUtil.generateToken(user.getEmail());
             return JWT;
         }else{
             System.out.println("wrong");
