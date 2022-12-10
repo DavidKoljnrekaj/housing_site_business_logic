@@ -1,7 +1,7 @@
 package com.group5;
 
 
-import com.group5.model.*;
+import com.group5.security.JwtTokenUtil;
 import com.group5.service.implementations.HouseListingServiceImpl;
 import com.group5.service.implementations.UserServiceImpl;
 import com.group5.service.services.HouseListingService;
@@ -9,16 +9,13 @@ import com.group5.service.services.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
 @SpringBootTest
-class HousingSiteBussinesLogicApplicationTests {
-/*
+class HousingSiteBusinessLogicApplicationTests {
+
     private HouseListingService listingService = new HouseListingServiceImpl();
     private UserService userService = new UserServiceImpl();
-*/
+    private JwtTokenUtil jwtTokenUtil = new JwtTokenUtil();
+
 	/*
 
 	@Test
@@ -55,13 +52,13 @@ class HousingSiteBussinesLogicApplicationTests {
                 files, 450000, "", "");
         listingService.addListing(house);
     }
-/*
+
     @Test
     void showListings(){
-        ArrayList<HouseListingShort> listings = listingService.getHouseListings(Optional.of(Integer.MAX_VALUE), Optional.of(Integer.MAX_VALUE), Optional.of(Integer.MAX_VALUE));
+        ArrayList<HouseListingShort> listings = listingService.getHouseListings(Optional.of("1200"), Optional.of("120"), Optional.of("20"));
         System.out.println(listings);
-    }*/
-/*
+    }
+
     @Test
     void showListingsByCriteria(){
 
@@ -78,12 +75,6 @@ class HousingSiteBussinesLogicApplicationTests {
         Optional<User> user1 = userService.registerUser(user);
         System.out.println(user1);
     }
-
-    @Test
-    void createAnAccount1(){
-
-    }
-
 
     @Test
     void updateListing(){
@@ -103,5 +94,17 @@ class HousingSiteBussinesLogicApplicationTests {
     @Test
     void sellerSeeListings(){
 
-    }*/
+    }
+
+    @Test
+    void login(){
+        boolean correctCredentials = userService.Login("email", "asd");
+        System.out.println(correctCredentials);
+    }
+
+ */
+    @Test
+    void generateJWT(){
+        System.out.println(jwtTokenUtil.generateToken("MyEmail"));
+    }
 }
