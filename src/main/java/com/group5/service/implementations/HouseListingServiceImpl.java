@@ -72,7 +72,7 @@ public class HouseListingServiceImpl implements HouseListingService {
                     .setFloorArea(listing.getFloorarea())
                     .setAddress(AddressMessage.newBuilder().setStreet(listing.getAddress().getStreet()).setHouseNo(listing.getAddress().houseno)
                             .setCity(listing.getAddress().city).setPostNumber(listing.getAddress().postnumber).build())
-                            .addAllImages(listing.getAllImageFileMessages(listing.getImages()))
+                            .addAllImages(HouseListing.getAllImageFileMessages(listing.getImages()))
                     .setPrice((double)listing.getPrice())
                     .setUserEmail(listing.getEmail())
                             .setDescription(listing.getDescription())
@@ -89,8 +89,32 @@ public class HouseListingServiceImpl implements HouseListingService {
     }
 
     @Override
-    public void updateListing(HouseListing listing, long id)
+    public HouseListing updateListing(HouseListing listing, long id)
     {
+        HouseResponse response = null;
+        try {
+            response = blockingStub.updateListing(HouseResponse.newBuilder()
+                    .setConstructionYear(listing.getConstructionYear())
+                    .setLastRebuilt(listing.getLastRebuilt())
+                    .setHasInspection(listing.isHasInspection())
+                    .setGroundArea(listing.getGroundArea())
+                    .setFloorArea(listing.getFloorArea())
+                    .setAddress(AddressMessage.newBuilder().setStreet(listing.getAddress().getStreet()).setHouseNo(listing.getAddress().houseno)
+                            .setCity(listing.getAddress().city).setPostNumber(listing.getAddress().postnumber).build())
+                    .addAllImages(HouseListing.getAllImageFileMessages(listing.getImages()))
+                    .setPrice((double)listing.getPrice())
+                    .setUserEmail(listing.getUserEmail())
+                    .setDescription(listing.getDescription())
+                    .build());
+        }
+        catch (StatusRuntimeException e){
+            System.out.println("Listing not created");
+            e.printStackTrace();
+            return null;
+        }
+        return new HouseListing(response.getId(),new Address(response.getAddress().getStreet(), response.getAddress().getPostNumber(), response.getAddress().getCity(),
+                response.getAddress().getHouseNo()), response.getConstructionYear(), response.getLastRebuilt(), response.getHasInspection(), response.getGroundArea(),
+                response.getFloorArea(), ImageFile.fromGrpc(response.getImagesList()), response.getPrice(), response.getUserEmail(), response.getDescription());
 
     }
 @Override

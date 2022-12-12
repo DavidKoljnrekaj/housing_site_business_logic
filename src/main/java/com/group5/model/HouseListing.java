@@ -1,5 +1,8 @@
 package com.group5.model;
 
+import com.group5.proto.Listing.ImageFileMessage;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class HouseListing {
@@ -76,5 +79,15 @@ public class HouseListing {
 
     public String getDescription() {
         return description;
+    }
+
+    public static List<ImageFileMessage> getAllImageFileMessages(List<ImageFile> images)
+    {
+        List<ImageFileMessage> base=new ArrayList<>();
+        for (ImageFile image:images) {
+            base.add(ImageFileMessage.newBuilder().setImageFileName(image.fileName).setImageContentType(image.contentType)
+                    .setImageBase64Data(image.base64data).build());
+        }
+        return base;
     }
 }

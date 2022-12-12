@@ -14,6 +14,6 @@ public interface HouseListingService {
     ArrayList<HouseListingShort> getHouseListings(Optional<String> maxPrice, Optional<String> minArea, Optional<String> postNumber);
     HouseListing addListing(HouseListingCreationDTO listing);
     ArrayList<HouseListingShort> getHouseListingsByEmail(String email);
-    void updateListing(HouseListing listing, long id);
+    HouseListing updateListing(HouseListing listing, long id);
 
 }

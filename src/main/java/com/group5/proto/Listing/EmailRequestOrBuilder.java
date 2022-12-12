@@ -11,7 +11,7 @@ public interface EmailRequestOrBuilder extends
    * <code>string email = 1;</code>
    * @return The email.
    */
-  java.lang.String getEmail();
+  String getEmail();
   /**
    * <code>string email = 1;</code>
    * @return The bytes for email.

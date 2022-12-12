@@ -103,15 +103,7 @@ public class HouseListingCreationDTO {
     public void setPrice(long price) {
         this.price = price;
     }
-    public List<ImageFileMessage> getAllImageFileMessages(List<ImageFile> images)
-    {
-        List<ImageFileMessage> base=new ArrayList<>();
-        for (ImageFile image:images) {
-            base.add(ImageFileMessage.newBuilder().setImageFileName(image.fileName).setImageContentType(image.contentType)
-                    .setImageBase64Data(image.base64data).build());
-        }
-        return base;
-    }
+
 
 
 }

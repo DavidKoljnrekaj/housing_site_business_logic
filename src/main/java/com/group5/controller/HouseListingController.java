@@ -42,8 +42,8 @@ public class HouseListingController {
     }
 
     @PutMapping(value= "/houselisting/{id}" , consumes = "application/json;charset=UTF-8" )
-    public void updateListing(@RequestBody HouseListing listing, @PathVariable long id)
+    public HouseListing updateListing(@RequestBody HouseListing listing, @PathVariable long id)
     {
-        houseListingService.updateListing(listing,id);
+        return houseListingService.updateListing(listing,id);
     }
 }
